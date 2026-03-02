@@ -19,12 +19,29 @@ const kpiStripEl = document.getElementById("kpi-strip");
 const searchInputEl = document.getElementById("player-search");
 const upgradeOnlyEl = document.getElementById("upgrade-only");
 const reloadButtonEl = document.getElementById("reload-claim");
+const appMainEl = document.querySelector("main");
 
 const uiState = { rows: [], recommendations: [], recommendationStates: {}, searchTerm: "", actionableOnly: false };
 
 function setStatus(message, isError = false) {
   statusEl.textContent = message;
-  statusEl.classList.toggle("ok", !isError);
+  statusEl.classList.remove("status-info", "status-warn", "ok");
+  if (isError) {
+    statusEl.classList.add("status-warn");
+    return;
+  }
+
+  statusEl.classList.add("status-info", "ok");
+}
+
+function setLoadingState(isLoading) {
+  if (reloadButtonEl) {
+    reloadButtonEl.disabled = isLoading;
+    reloadButtonEl.textContent = isLoading ? "Loading…" : "Reload Claim Data";
+    reloadButtonEl.setAttribute("aria-disabled", String(isLoading));
+  }
+
+  if (appMainEl) appMainEl.setAttribute("aria-busy", String(isLoading));
 }
 
 function isBrowser() {
@@ -306,7 +323,10 @@ function renderRecommendations(data, states) {
   if (states.baselineMissing) warnings.push("Baseline missing");
   if (states.mappingMissing) warnings.push("Mapping missing for one or more professions");
   if (states.tierDataUnavailable) warnings.push("Tier data unavailable for one or more entries");
-  recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Recommendations ready.";
+  const hasWarnings = warnings.length > 0;
+  recommendationsStateEl.textContent = hasWarnings ? `⚠ ${warnings.join(" • ")}` : "✓ Recommendations ready.";
+  recommendationsStateEl.classList.toggle("status-warn", hasWarnings);
+  recommendationsStateEl.classList.toggle("status-info", !hasWarnings);
 
   const renderedRows = data.flatMap((player) => player.top3.map((profession, index) => ({ player, profession, index })));
   if (!renderedRows.length) {
@@ -377,13 +397,15 @@ function applyFilters() {
 
 async function loadClaim() {
   const claimId = FIXED_CLAIM_ID;
+  setLoadingState(true);
   setStatus(`Loading ${FIXED_CLAIM_NAME} claim, citizens, and player equipment…`);
 
-  const [claimPayload, citizensPayload, skillsPayload] = await Promise.all([
-    apiGet(`/api/claims/${claimId}`),
-    apiGet(`/api/claims/${claimId}/citizens`),
-    apiGet(`/api/skills`),
-  ]);
+  try {
+    const [claimPayload, citizensPayload, skillsPayload] = await Promise.all([
+      apiGet(`/api/claims/${claimId}`),
+      apiGet(`/api/claims/${claimId}/citizens`),
+      apiGet(`/api/skills`),
+    ]);
 
   const claim = claimPayload.claim ?? claimPayload.data ?? claimPayload;
   const citizens = pluckArray(citizensPayload, "citizens");
@@ -504,14 +526,17 @@ async function loadClaim() {
   recommendations.sort((a, b) => b.totalDelta - a.totalDelta);
   rows.sort((a, b) => b.professionXp - a.professionXp);
 
-  uiState.rows = rows;
-  uiState.recommendations = recommendations;
-  uiState.recommendationStates = baselineState;
+    uiState.rows = rows;
+    uiState.recommendations = recommendations;
+    uiState.recommendationStates = baselineState;
 
-  renderProfessionSummary(professionStats, rows.length);
-  renderKpis(rows, recommendations);
-  applyFilters();
-  setStatus(`Loaded ${rows.length} players from ${FIXED_CLAIM_NAME} (${claimId}).`);
+    renderProfessionSummary(professionStats, rows.length);
+    renderKpis(rows, recommendations);
+    applyFilters();
+    setStatus(`Loaded ${rows.length} players from ${FIXED_CLAIM_NAME} (${claimId}).`);
+  } finally {
+    setLoadingState(false);
+  }
 }
 
 reloadButtonEl?.addEventListener("click", async () => {

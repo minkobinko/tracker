@@ -9,14 +9,15 @@
   <body>
     <main class="container">
       <section class="intro-grid">
-        <header class="card">
+        <header class="card hero-card">
+          <p class="eyebrow">Claim dashboard</p>
           <h1>New Aquila Claim Tracker</h1>
           <p>
             Track profession XP and equipped tools/gear for players in the New Aquila claim.
             Data source:
             <a href="https://bitjita.com" target="_blank" rel="noreferrer">bitjita.com</a>
           </p>
-          <p id="load-status" class="small">Ready.</p>
+          <p id="load-status" class="small status-pill status-info">Ready.</p>
         </header>
 
         <section class="controls card">
@@ -58,7 +59,7 @@
               <tbody id="players-body"></tbody>
             </table>
           </div>
-          <p id="players-empty" class="small hidden">No players match your search.</p>
+          <p id="players-empty" class="small empty-state hidden">🔎 No players match your search. Try clearing or changing the filter.</p>
         </section>
 
         <section id="recommendations" class="card hidden">
@@ -70,7 +71,7 @@
             </label>
           </div>
           <p class="small">Top 3 professions per player ranked by XP gain since baseline snapshot.</p>
-          <div id="recommendations-state" class="small"></div>
+          <div id="recommendations-state" class="small status-banner status-info"></div>
           <div class="table-wrap">
             <table>
               <thead>
@@ -87,7 +88,7 @@
               <tbody id="recommendations-body"></tbody>
             </table>
           </div>
-          <p id="recommendations-empty" class="small hidden">No recommendations match the current filters.</p>
+          <p id="recommendations-empty" class="small empty-state hidden">🧰 No recommendations match the current filters. Disable filters to see all players.</p>
         </section>
       </section>
 
