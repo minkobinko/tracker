@@ -244,7 +244,6 @@ function renderPlayers(rows) {
       <td>${row.highestProfession}</td>
       <td>${row.professionXp.toLocaleString()}</td>
       <td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>
-      <td>${row.recommendedToolLabel}</td>
     `;
     playersBodyEl.appendChild(tr);
   }
@@ -357,7 +356,6 @@ async function loadClaim(claimId) {
     }
 
     let gear = null;
-    let inventoriesPayloadForRecommendations = null;
     if (playerId) {
       try {
         const [equipmentPayload, playerPayload, inventoriesPayload] = await Promise.all([
@@ -366,7 +364,6 @@ async function loadClaim(claimId) {
           apiGet(`/api/players/${playerId}/inventories`),
         ]);
 
-        inventoriesPayloadForRecommendations = inventoriesPayload;
         gear = categorizedGearFromEquipmentPayload(equipmentPayload);
         mergeCategories(gear, categorizedToolsFromInventoriesPayload(inventoriesPayload));
 
