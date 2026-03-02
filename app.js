@@ -112,15 +112,6 @@ function getToolTierColor(tier) {
   return toolTierColorsByName[String(tierName).toLowerCase()] ?? null;
 }
 
-function renderTierColoredToolLabel(label) {
-  const normalizedLabel = String(label ?? "").trim();
-  if (!normalizedLabel) return "";
-
-  const detectedTier = detectToolTierFromLabel(normalizedLabel);
-  const tierColor = Number.isFinite(detectedTier) ? getToolTierColor(detectedTier) : null;
-  return `<span class="tier-tool-name"${tierColor ? ` style="color: ${tierColor};"` : ""}>${normalizedLabel}</span>`;
-}
-
 function normalizeProfessionName(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -330,8 +321,7 @@ function renderGearList(items, previewCount = 4) {
   if (!items.length) return '<span class="small">None</span>';
   const previewItems = items.slice(0, previewCount);
   const remainingCount = items.length - previewItems.length;
-  const renderToolLabel = typeof renderTierColoredToolLabel === "function" ? renderTierColoredToolLabel : (label) => String(label ?? "");
-  const previewHtml = `<ul>${previewItems.map((item) => `<li>${renderToolLabel(item)}</li>`).join("")}</ul>`;
+  const previewHtml = `<ul>${previewItems.map((item) => `<li>${renderTierColoredToolLabel(item)}</li>`).join("")}</ul>`;
   if (remainingCount <= 0) return previewHtml;
   return `${previewHtml}<div class="small">+${remainingCount} more</div>`;
 }
@@ -353,7 +343,7 @@ function renderPlayers(rows) {
     const claimTool = professionName && professionName !== "N/A"
       ? formatCurrentToolForRecommendations(resolveCurrentToolForProfession(professionName, row.gear))
       : "";
-    const claimToolLabel = claimTool ? `<div class="small">Tool: ${renderToolLabel(claimTool)}</div>` : "";
+    const claimToolLabel = claimTool ? `<div class="small">Tool: ${renderTierColoredToolLabel(claimTool)}</div>` : "";
 
     tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}${claimToolLabel}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
     playersBodyEl.appendChild(tr);
@@ -390,16 +380,17 @@ function renderRecommendations(data, states) {
     const family = profession.recommendedFamily ?? "Unknown";
     const tierName = Number.isFinite(profession.recommendedTier) ? getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}` : "";
     const recommendedTool = tierName ? `${tierName} ${family}` : family;
-    const recommendedToolLabel = renderToolLabel(recommendedTool);
+    const tierColor = getToolTierColor(profession.recommendedTier);
+    const recommendedToolLabel = `<span class="tier-tool-name"${tierColor ? ` style="color: ${tierColor};"` : ""}>${recommendedTool}</span>`;
     const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
-    const currentToolLabel = renderToolLabel(currentTool);
+    const currentToolLabel = renderTierColoredToolLabel(currentTool);
 
     tr.innerHTML = `
       <td id="recommendation-${player.playerId}">${index === 0 ? `<span class="table-link">${player.username}</span>` : ""}</td>
       <td>${profession.name}</td>
       <td>${profession.deltaXp.toLocaleString()}</td>
       <td>${profession.level}</td>
-      <td>${currentToolLabel}</td>
+      <td>${currentTool}</td>
       <td>${recommendedToolLabel}</td>
       <td><span class="limit-badge">${profession.limitBadge}</span></td>
     `;
