@@ -1,0 +1,89 @@
+The API base URL is https://bitjita.com. All /api/ routes return JSON, while /static/ routes return static files. The docs also say the API is currently limited to 250 requests per minute, and that most endpoints are public with no authentication required. They ask you to send either a User-Agent or x-app-identifier header to identify your app.
+
+The one authenticated-style workflow is chat verification: POST /api/auth/chat/validate takes a required code string. The user posts bitjita:auth:{code} in Bitcraft in-game chat channel 2, then calls the endpoint with that code. The response includes success, a player object (entityId, username), verificationCode, and verifiedAt.
+
+For core lookup/search endpoints:
+
+GET /api/cargo supports optional q (minimum 2 chars) and returns cargos plus count; GET /api/cargo/[id] takes numeric id and returns one cargo.
+
+GET /api/items supports optional q and returns items plus metrics (totalItems, totalCategories); GET /api/items/[itemId] returns an item plus craftingRecipes, extractionRecipes, relatedSkills, marketStats, recipesUsingItem, and itemListPossibilities.
+
+GET /api/players requires q (minimum 2 chars) and returns players plus total; GET /api/players/[id] returns a player plus related claims, empires, marketOrders, and skills.
+
+GET /api/buildings returns a buildings array; GET /api/buildings/[id] takes a building entity ID and returns a single building.
+
+For claims, Bitjita gives you good filtering on GET /api/claims: optional q, page, limit, sort, order, and regionId. Sort fields include things like entityId, name, regionName, supplies, treasury, createdAt, updatedAt, and tier. It returns claims plus count. The detailed claim route GET /api/claims/[id] returns a large claim object with ownership, region, supplies, treasury, coordinates, upkeep, tier, and researched techs. The nested claim routes return:
+
+/buildings: buildings in the claim, including function data like slot counts and allowed item rules.
+
+/citizens: citizens with skills, total XP, highest level, etc.
+
+/inventories: building inventories plus supporting items and cargos metadata.
+
+/members: member permissions and timestamps.
+
+/recruitment: recruitment listings with required skill info.
+
+Crafting endpoints are fairly rich. GET /api/crafts can filter by claimEntityId, playerEntityId, regionId, completed, and skillId, and returns craftResults, items, cargos, and claims. GET /api/crafts/[craftId] returns a detailed craft object including progress, recipe, output item(s), level requirements, tool requirements, ownership, claim location, and whether the craft is completed.
+
+Empire endpoints are simpler:
+
+GET /api/empires supports optional q and returns empires plus aggregate totals like totalClaims, totalMembers, totalTreasury, and count.
+
+GET /api/empires/[id] returns an empire object plus members.
+
+GET /api/empires/[id]/towers returns tower data including coordinates, energy, upkeep, activity state, nickname, and siege details.
+
+Leaderboards support pagination and sorting:
+
+GET /api/leaderboard/exploration accepts sortBy, sortOrder, page, and pageSize. It returns players, count, world totals, globalStats, and pagination.
+
+GET /api/leaderboard/skills accepts the same plus optional regionId. It returns players, count, skillNames, totalSkills, globalHighestLevel, and pagination.
+
+The market endpoints are some of the most useful:
+
+GET /api/market supports q, category, hasOrders, hasSellOrders, hasBuyOrders, and claimEntityId, and returns items, categories, and metrics inside data.
+
+GET /api/market/[itemOrCargo]/[itemId] takes itemOrCargo (item or cargo), itemId, and optional claimEntityId, returning the item plus sellOrders, buyOrders, and stats.
+
+GET /api/market/deals returns arbitrage opportunities.
+
+GET /api/market/player/[playerId] returns a player’s current sellOrders and buyOrders.
+
+GET /api/market/player/[playerId]/history lets you filter by status, type, limit, and offset, and returns sell/buy order history plus totals.
+
+GET /api/market/player/[playerId]/trades lets you filter completed trades by type, limit, offset, orderEntityId, and optionally itemId + itemType; it returns trade rows with price, quantity, counterparties, item metadata, region, and timestamp.
+
+POST /api/market/prices/bulk accepts itemIds and/or cargoIds (up to 100 each; at least one required) and returns price summary data like lowestSellPrice, highestBuyPrice, spread, volume24h, and order counts.
+
+Player subroutes add a lot:
+
+/crafts supports optional completed=true|false|all.
+
+/equipment returns equipment.
+
+/housing returns a list of houses with rank, lock state, claim, and coordinates.
+
+/housing/[houseId] returns detailed housing, inventories, and attached items/cargos.
+
+/inventories returns inventories, items, and cargos.
+
+/vault returns collectibles.
+
+There are also utility/system endpoints:
+
+GET /api/chat supports limit (default 50, max 100) and since, returning messages and total.
+
+GET /api/logs/storage supports playerEntityId, buildingEntityId, limit (default 100, max 1000), afterId, and since, returning logs, items, and cargos.
+
+GET /api/regions returns region IDs/names.
+
+GET /api/skills returns profession and adventure skill lists.
+
+GET /api/status returns regions, count, totalSignedIn, and totalInQueue.
+
+GET /api/status/chart supports bucket and limit, returning timeseries buckets.
+
+/static/experience/levels.csv returns level/xp CSV.
+
+/static/experience/levels.json returns level/xp JSON.
