@@ -23,6 +23,20 @@ const appMainEl = document.querySelector("main");
 
 const uiState = { rows: [], recommendations: [], recommendationStates: {}, searchTerm: "", actionableOnly: false };
 
+const toolTierColorsByName = {
+  astralite: "#F0F9FA",
+  auric: "#CE7C55",
+  aurumite: "#E3CE50",
+  celestium: "#79DCB9",
+  elenvar: "#6684B1",
+  emarium: "#9ADE67",
+  ferralith: "#797F9C",
+  luminite: "#4C2FDF",
+  pyrelite: "#CE7C55",
+  rathium: "#D8292E",
+  umbracite: "#4B5C71",
+};
+
 function setStatus(message, isError = false) {
   statusEl.textContent = message;
   statusEl.classList.remove("status-info", "status-warn", "ok");
@@ -90,6 +104,21 @@ function getProfessionToolMapByName() {
 function getToolTierName(tier) {
   const tiers = typeof window !== "undefined" && window.toolTierNames ? window.toolTierNames : {};
   return tiers[String(tier)] ?? tiers[Number(tier)] ?? null;
+}
+
+function getToolTierColor(tier) {
+  const tierName = getToolTierName(tier);
+  if (!tierName) return null;
+  return toolTierColorsByName[String(tierName).toLowerCase()] ?? null;
+}
+
+function renderTierColoredToolLabel(label) {
+  const normalizedLabel = String(label ?? "").trim();
+  if (!normalizedLabel) return "";
+
+  const detectedTier = detectToolTierFromLabel(normalizedLabel);
+  const tierColor = Number.isFinite(detectedTier) ? getToolTierColor(detectedTier) : null;
+  return `<span class="tier-tool-name"${tierColor ? ` style="color: ${tierColor};"` : ""}>${normalizedLabel}</span>`;
 }
 
 function normalizeProfessionName(value) {
@@ -301,7 +330,7 @@ function renderGearList(items, previewCount = 4) {
   if (!items.length) return '<span class="small">None</span>';
   const previewItems = items.slice(0, previewCount);
   const remainingCount = items.length - previewItems.length;
-  const previewHtml = `<ul>${previewItems.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+  const previewHtml = `<ul>${previewItems.map((item) => `<li>${renderTierColoredToolLabel(item)}</li>`).join("")}</ul>`;
   if (remainingCount <= 0) return previewHtml;
   return `${previewHtml}<div class="small">+${remainingCount} more</div>`;
 }
@@ -317,7 +346,13 @@ function renderPlayers(rows) {
   playersBodyEl.innerHTML = "";
   for (const row of rows) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
+    const professionName = String(row.highestProfession ?? "").split(" (Lv")[0].trim();
+    const claimTool = professionName && professionName !== "N/A"
+      ? formatCurrentToolForRecommendations(resolveCurrentToolForProfession(professionName, row.gear))
+      : "";
+    const claimToolLabel = claimTool ? `<div class="small">Tool: ${renderTierColoredToolLabel(claimTool)}</div>` : "";
+
+    tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}${claimToolLabel}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
     playersBodyEl.appendChild(tr);
   }
 
@@ -351,15 +386,17 @@ function renderRecommendations(data, states) {
     const family = profession.recommendedFamily ?? "Unknown";
     const tierName = Number.isFinite(profession.recommendedTier) ? getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}` : "";
     const recommendedTool = tierName ? `${tierName} ${family}` : family;
+    const recommendedToolLabel = renderTierColoredToolLabel(recommendedTool);
     const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
+    const currentToolLabel = renderTierColoredToolLabel(currentTool);
 
     tr.innerHTML = `
       <td id="recommendation-${player.playerId}">${index === 0 ? `<span class="table-link">${player.username}</span>` : ""}</td>
       <td>${profession.name}</td>
       <td>${profession.deltaXp.toLocaleString()}</td>
       <td>${profession.level}</td>
-      <td>${currentTool}</td>
-      <td>${recommendedTool}</td>
+      <td>${currentToolLabel}</td>
+      <td>${recommendedToolLabel}</td>
       <td><span class="limit-badge">${profession.limitBadge}</span></td>
     `;
     recommendationsBodyEl.appendChild(tr);
