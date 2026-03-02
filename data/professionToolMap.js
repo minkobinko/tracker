@@ -11,22 +11,56 @@ const toolTierNames = {
   10: 'Astralite',
 };
 
-const professionToolMapByName = {
-  forester: { tags: ['forester', 'woodcutting', 'lumber'], namePatterns: ['axe'], recommendedToolName: 'Axe' },
-  carpenter: { tags: ['carpenter', 'carpentry', 'woodwork'], namePatterns: ['saw'], recommendedToolName: 'Saw' },
-  mason: { tags: ['mason', 'masonry', 'stone'], namePatterns: ['chisel'], recommendedToolName: 'Chisel' },
-  miner: { tags: ['miner', 'mining', 'ore'], namePatterns: ['pickaxe'], recommendedToolName: 'Pickaxe' },
-  smith: { tags: ['smith', 'smithing', 'forge'], namePatterns: ['hammer'], recommendedToolName: 'Hammer' },
-  leatherworker: { tags: ['leatherworker', 'leather'], namePatterns: ['knife'], recommendedToolName: 'Knife' },
-  hunter: { tags: ['hunter', 'hunting'], namePatterns: ['bow'], recommendedToolName: 'Bow' },
-  tailor: { tags: ['tailor', 'tailoring', 'cloth'], namePatterns: ['scissors', 'shears'], recommendedToolName: 'Scissors' },
-  farmer: { tags: ['farmer', 'farming', 'crop'], namePatterns: ['hoe'], recommendedToolName: 'Hoe' },
+const TOOL_FAMILIES = {
+  forestry: { tags: ['forester', 'forestry', 'woodcutting', 'lumber'], namePatterns: ['axe'], recommendedToolName: 'Axe' },
+  carpentry: { tags: ['carpenter', 'carpentry', 'woodwork'], namePatterns: ['saw'], recommendedToolName: 'Saw' },
+  masonry: { tags: ['mason', 'masonry', 'stone'], namePatterns: ['chisel'], recommendedToolName: 'Chisel' },
+  mining: { tags: ['miner', 'mining', 'ore'], namePatterns: ['pickaxe'], recommendedToolName: 'Pickaxe' },
+  smithing: { tags: ['smith', 'smithing', 'forge'], namePatterns: ['hammer'], recommendedToolName: 'Hammer' },
+  leatherworking: { tags: ['leatherworker', 'leatherworking', 'leather'], namePatterns: ['knife'], recommendedToolName: 'Knife' },
+  hunting: { tags: ['hunter', 'hunting'], namePatterns: ['bow'], recommendedToolName: 'Bow' },
+  tailoring: { tags: ['tailor', 'tailoring', 'cloth'], namePatterns: ['scissors', 'shears'], recommendedToolName: 'Scissors' },
+  farming: { tags: ['farmer', 'farming', 'crop'], namePatterns: ['hoe'], recommendedToolName: 'Hoe' },
   fishing: { tags: ['fishing', 'fish'], namePatterns: ['rod'], recommendedToolName: 'Rod' },
-  cook: { tags: ['cook', 'cooking', 'kitchen'], namePatterns: ['cooking pot', 'pot'], recommendedToolName: 'Cooking Pot' },
-  forager: { tags: ['forager', 'foraging', 'gather'], namePatterns: ['machete'], recommendedToolName: 'Machete' },
+  cooking: { tags: ['cook', 'cooking', 'kitchen'], namePatterns: ['cooking pot', 'pot'], recommendedToolName: 'Cooking Pot' },
+  foraging: { tags: ['forager', 'foraging', 'gather'], namePatterns: ['machete'], recommendedToolName: 'Machete' },
   scholar: { tags: ['scholar', 'research', 'study'], namePatterns: ['quill'], recommendedToolName: 'Quill' },
   building: { tags: ['building', 'builder', 'construction'], namePatterns: ['mallet'], recommendedToolName: 'Mallet' },
 };
+
+const PROFESSION_ALIASES = {
+  forester: 'forestry',
+  forestry: 'forestry',
+  carpenter: 'carpentry',
+  carpentry: 'carpentry',
+  mason: 'masonry',
+  masonry: 'masonry',
+  miner: 'mining',
+  mining: 'mining',
+  smith: 'smithing',
+  smithing: 'smithing',
+  leatherworker: 'leatherworking',
+  leatherworking: 'leatherworking',
+  hunter: 'hunting',
+  hunting: 'hunting',
+  tailor: 'tailoring',
+  tailoring: 'tailoring',
+  farmer: 'farming',
+  farming: 'farming',
+  fishing: 'fishing',
+  cook: 'cooking',
+  cooking: 'cooking',
+  forager: 'foraging',
+  foraging: 'foraging',
+  scholar: 'scholar',
+  building: 'building',
+};
+
+const professionToolMapByName = Object.fromEntries(
+  Object.entries(PROFESSION_ALIASES)
+    .map(([alias, canonical]) => [alias, TOOL_FAMILIES[canonical]])
+    .filter(([, config]) => Boolean(config)),
+);
 
 const professionToolMapBySkillId = {};
 
