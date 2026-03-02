@@ -321,7 +321,7 @@ function renderGearList(items, previewCount = 4) {
   if (!items.length) return '<span class="small">None</span>';
   const previewItems = items.slice(0, previewCount);
   const remainingCount = items.length - previewItems.length;
-  const previewHtml = `<ul>${previewItems.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+  const previewHtml = `<ul>${previewItems.map((item) => `<li>${renderTierColoredToolLabel(item)}</li>`).join("")}</ul>`;
   if (remainingCount <= 0) return previewHtml;
   return `${previewHtml}<div class="small">+${remainingCount} more</div>`;
 }
@@ -337,7 +337,13 @@ function renderPlayers(rows) {
   playersBodyEl.innerHTML = "";
   for (const row of rows) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
+    const professionName = String(row.highestProfession ?? "").split(" (Lv")[0].trim();
+    const claimTool = professionName && professionName !== "N/A"
+      ? formatCurrentToolForRecommendations(resolveCurrentToolForProfession(professionName, row.gear))
+      : "";
+    const claimToolLabel = claimTool ? `<div class="small">Tool: ${renderTierColoredToolLabel(claimTool)}</div>` : "";
+
+    tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}${claimToolLabel}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
     playersBodyEl.appendChild(tr);
   }
 
@@ -374,6 +380,7 @@ function renderRecommendations(data, states) {
     const tierColor = getToolTierColor(profession.recommendedTier);
     const recommendedToolLabel = `<span class="tier-tool-name"${tierColor ? ` style="color: ${tierColor};"` : ""}>${recommendedTool}</span>`;
     const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
+    const currentToolLabel = renderTierColoredToolLabel(currentTool);
 
     tr.innerHTML = `
       <td id="recommendation-${player.playerId}">${index === 0 ? `<span class="table-link">${player.username}</span>` : ""}</td>
