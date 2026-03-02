@@ -499,6 +499,7 @@ async function loadClaim(claimId) {
     for (const [skillId, currentXp] of currentBySkillId.entries()) {
       const baselineXp = baselineXpBySkillId.get(skillId) ?? 0;
       const deltaXp = Math.max(0, currentXp - baselineXp);
+      if (deltaXp <= 0) continue;
       const name = skillNameById.get(skillId) ?? `Skill ${skillId}`;
       const level = toNumber(live?.skills?.[skillId] ?? 0, 0);
       const mapping = resolveToolMappingForProfession(name, claim?.tier);
