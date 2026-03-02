@@ -1,0 +1,5296 @@
+{
+  "generatedAt": "2026-03-02T07:41:59.028Z",
+  "claim": {
+    "id": "1008806316547592462",
+    "name": "New Aquila",
+    "region": "Lumethis",
+    "tier": 3
+  },
+  "totals": {
+    "players": 48,
+    "professionXp": 1270312390,
+    "skillXp": 90627069
+  },
+  "players": [
+    {
+      "playerId": "648518346354631007",
+      "username": "Yeong",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1860
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 2863266
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 127023247
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 1322
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 609
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 2008
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 720
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 0
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 70694
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 8098
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 152736
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 1101
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 35124
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 19504
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 14000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 168713
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 137046
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 65400
+        }
+      },
+      "totalProfessionXp": 130125661,
+      "totalSkillXp": 439787
+    },
+    {
+      "playerId": "1297036692699979680",
+      "username": "Conekk",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 17366155
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 19922
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 7913
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 21998
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 96268358
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 7202
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 14847
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 8743
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 36390
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 24234
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 18980
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 20141
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 50685
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 9716
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 11500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 366233
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 503306
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 45774
+        }
+      },
+      "totalProfessionXp": 113814883,
+      "totalSkillXp": 987214
+    },
+    {
+      "playerId": "576460752317374481",
+      "username": "TranquilAbyss",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 2542455
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 5812
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 813975
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 6303665
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 45119825
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 936330
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 2198
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 194985
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1331681
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 89627
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 38978
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 504903
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 858753
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 64573
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 26000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 1642235
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 1183869
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 184782
+        }
+      },
+      "totalProfessionXp": 57884434,
+      "totalSkillXp": 3960212
+    },
+    {
+      "playerId": "504403158281229166",
+      "username": "Sakura",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 515200
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 127276
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 19799979
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 43381486
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 206905
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 137377
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 186345
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 21021818
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1976650
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 35309289
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 180338
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 338153
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 233627
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 1361902
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 17000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 1200136
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 2394305
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 339073
+        }
+      },
+      "totalProfessionXp": 123180816,
+      "totalSkillXp": 5546043
+    },
+    {
+      "playerId": "576460752317376094",
+      "username": "Alastari",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 2252341
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 32414754
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 2206393
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 20640874
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 2688418
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 58347
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 91419
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 3177714
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 5022705
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 341420
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 428438
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 23034517
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 1088323
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 390895
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 10500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 232873
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 1073145
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 209989
+        }
+      },
+      "totalProfessionXp": 92357340,
+      "totalSkillXp": 3005725
+    },
+    {
+      "playerId": "864691128472669545",
+      "username": "Karmour",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 466645
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 126793
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 527814
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 445642
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 768203
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 231173
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 760763
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 6749479
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 18342079
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 1562847
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 33805227
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 328736
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 497623
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 158010
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 59700
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 1333332
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 903023
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 222483
+        }
+      },
+      "totalProfessionXp": 64115401,
+      "totalSkillXp": 3174171
+    },
+    {
+      "playerId": "576460752317374286",
+      "username": "Rostam",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 438805
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1524932
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 35384989
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 54970
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 84336
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 51665
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 127780
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 640
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 39794
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 318205
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 440517
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 476841
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 68606
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 176157
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 28000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 1145870
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 577761
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 237932
+        }
+      },
+      "totalProfessionXp": 38943474,
+      "totalSkillXp": 2234326
+    },
+    {
+      "playerId": "504403158281238658",
+      "username": "Vastidious",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 33662485
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 843016
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 2329546
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 606015
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 17000784
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 477635
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1029964
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 329961
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 2648656
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 1192371
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 3770258
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 1013489
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 223117
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 90886
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 53000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 1315016
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 336502
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 231066
+        }
+      },
+      "totalProfessionXp": 64904180,
+      "totalSkillXp": 2249587
+    },
+    {
+      "playerId": "504403158281521578",
+      "username": "Treskies",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 2308190
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 28590084
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 2365080
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 2973594
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 2311557
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 5153083
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 7997740
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 3109718
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 12570351
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 2282662
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 12775253
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 4896932
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 367852
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 3202683
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 71000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 903092
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 866718
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 837050
+        }
+      },
+      "totalProfessionXp": 87334244,
+      "totalSkillXp": 6248395
+    },
+    {
+      "playerId": "864691128472669575",
+      "username": "Lanidae",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1942577
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 5426
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 1815152
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 1759747
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 1643433
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 10863
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 589389
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 2905627
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1761306
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 21410230
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 1839457
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 133974
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 211853
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 69636
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 17500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 211345
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 781998
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 182739
+        }
+      },
+      "totalProfessionXp": 35817181,
+      "totalSkillXp": 1475071
+    },
+    {
+      "playerId": "1297036692699948364",
+      "username": "MachZero",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1686754
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 13575182
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 19829649
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 1307854
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 987734
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 427083
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1036586
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 1200343
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1098931
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 516414
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 1605661
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 467373
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 295828
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 5102181
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 317665
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 1057731
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 247721
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 719418
+        }
+      },
+      "totalProfessionXp": 43739564,
+      "totalSkillXp": 7740544
+    },
+    {
+      "playerId": "504403158281446826",
+      "username": "LordDrazos",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 534588
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 3483698
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 4543159
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 332743
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 151608
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 38022
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 86061
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 283208
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 4423250
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 319967
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 17814741
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 350737
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 144277
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 1389835
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 68500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 961592
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 519036
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 218633
+        }
+      },
+      "totalProfessionXp": 32361782,
+      "totalSkillXp": 3301873
+    },
+    {
+      "playerId": "576460752317374436",
+      "username": "Argixel",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 23827
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1993
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 3481
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 102668
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 18695
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 502634
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 903044
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 14850948
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1377649
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 9202
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 18198
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 87835
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 251748
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 27440
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 88500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 43996
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 103492
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 91064
+        }
+      },
+      "totalProfessionXp": 17900174,
+      "totalSkillXp": 606240
+    },
+    {
+      "playerId": "1369094286737165909",
+      "username": "Ana",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 104076
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 10360984
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 10301
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 50971
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 21207
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 0
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 0
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 7638
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 109767
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 9263
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 0
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 990
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 36801
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 13133381
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 14000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 3570
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 3993
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 119516
+        }
+      },
+      "totalProfessionXp": 10675197,
+      "totalSkillXp": 13311261
+    },
+    {
+      "playerId": "504403158281228506",
+      "username": "ShardikFanatic",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 64737
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1287049
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 14833
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 10617803
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 51103
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 17205
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 23728
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 16543
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 51192
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 51199
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 37594
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 1522720
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 162393
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 33112
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 83600
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 328573
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 845320
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 534765
+        }
+      },
+      "totalProfessionXp": 13755706,
+      "totalSkillXp": 1987763
+    },
+    {
+      "playerId": "648518346354064932",
+      "username": "bitHawke",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 2476297
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 2352360
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 9359351
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 2470299
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 2421517
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 568865
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1846390
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 1433510
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 2363804
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 3603923
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 4209864
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 2403790
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 251233
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 1090160
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 44300
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 1259745
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 683226
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 447314
+        }
+      },
+      "totalProfessionXp": 35509970,
+      "totalSkillXp": 3775978
+    },
+    {
+      "playerId": "576460752317374916",
+      "username": "RionaE",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 9288315
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1851
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 440093
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 21086
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 835321
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 0
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 273
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 13157
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 2101
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 7186
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 4077
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 4832
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 36302
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 4472
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 9000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 56994
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 22401
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 1000
+        }
+      },
+      "totalProfessionXp": 10618292,
+      "totalSkillXp": 130169
+    },
+    {
+      "playerId": "576460752317376334",
+      "username": "Chrono",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 68957
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1110
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 6945
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 41638
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 2182438
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 1302
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 4392
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 12519
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 3997084
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 8227
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 7693230
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 22089
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 264400
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 7504
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 32500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 267805
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 61192
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 8520
+        }
+      },
+      "totalProfessionXp": 14039931,
+      "totalSkillXp": 641921
+    },
+    {
+      "playerId": "1369094286737069506",
+      "username": "SkyeSenpai",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 5956458
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 3924495
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 2454901
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 6719406
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 7162325
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 2491347
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 2632853
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 2333504
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 7010623
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 2368925
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 3154313
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 2494776
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 317436
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 812609
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 166480
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 880893
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 468449
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 842991
+        }
+      },
+      "totalProfessionXp": 48703926,
+      "totalSkillXp": 3488858
+    },
+    {
+      "playerId": "1224979098660016826",
+      "username": "Eternalime",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1931754
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 6293897
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 1960107
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 2580005
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 822230
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 140803
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 346425
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 359629
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 736767
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 852593
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 1025924
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 2620355
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 412215
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 2762604
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 10000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 271281
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 210333
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 37500
+        }
+      },
+      "totalProfessionXp": 19670489,
+      "totalSkillXp": 3703933
+    },
+    {
+      "playerId": "648518346354066009",
+      "username": "Strawdrinker",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 2564968
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1463379
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 607242
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 2701279
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 2445198
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 1100803
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 3041040
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 3412584
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 4139514
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 313743
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 4883122
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 2080768
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 452264
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 167683
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 124160
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 485439
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 859504
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 211719
+        }
+      },
+      "totalProfessionXp": 28753640,
+      "totalSkillXp": 2300769
+    },
+    {
+      "playerId": "1224979098660016067",
+      "username": "Boendie",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1257552
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 579448
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 1997007
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 501346
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 1219786
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 632032
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1162305
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 987609
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 2381337
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 267131
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 4018797
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 306477
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 239319
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 381669
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 115260
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 609964
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 420910
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 279351
+        }
+      },
+      "totalProfessionXp": 15310827,
+      "totalSkillXp": 2046473
+    },
+    {
+      "playerId": "1224979098660122410",
+      "username": "Misticalese",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1802912
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 4036877
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 788764
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 901602
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 1484977
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 346302
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 463189
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 1406448
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1378163
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 477411
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 930728
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 898438
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 159247
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 354582
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 81600
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 356834
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 306339
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 102236
+        }
+      },
+      "totalProfessionXp": 14915811,
+      "totalSkillXp": 1360838
+    },
+    {
+      "playerId": "1369094286738448933",
+      "username": "MrMysticol",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 4375903
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1083846
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 2553298
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 2428103
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 4186631
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 89776
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 262343
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 2100621
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 2719439
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 1603468
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 3879307
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 492738
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 237780
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 646819
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 47200
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 452810
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 221950
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 207024
+        }
+      },
+      "totalProfessionXp": 25775473,
+      "totalSkillXp": 1813583
+    },
+    {
+      "playerId": "1008806316547467638",
+      "username": "DaKommizzah",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 3458358
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 353394
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 697879
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 763348
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 3648572
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 20305
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 413215
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 1684235
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1920419
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 3886457
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 1772138
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 153477
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 435929
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 49483
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 7500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 79239
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 167302
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 2000
+        }
+      },
+      "totalProfessionXp": 18771797,
+      "totalSkillXp": 741453
+    },
+    {
+      "playerId": "576460752317373566",
+      "username": "Daktyl",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1224690
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 3427547
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 2314080
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 933492
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 996880
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 1296030
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 2758110
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 489374
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 573109
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 342295
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 294572
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 2727443
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 202335
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 289425
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 11000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 181904
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 64591
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 25000
+        }
+      },
+      "totalProfessionXp": 17377622,
+      "totalSkillXp": 774255
+    },
+    {
+      "playerId": "1297036692700180475",
+      "username": "Maple",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 66232
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 0
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 4322
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 167070
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 77116
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 2858
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 5893
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 47263
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 3418276
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 71333
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 547002
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 119144
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 54394
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 17592
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 11500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 104258
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 86352
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 75660
+        }
+      },
+      "totalProfessionXp": 4526509,
+      "totalSkillXp": 349756
+    },
+    {
+      "playerId": "1008806316547466183",
+      "username": "Baron",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1375591
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 401738
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 164241
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 386447
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 536057
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 918
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 3125132
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 536399
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 133223
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 314884
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 1136692
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 274690
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 435185
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 90912
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 28000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 22779
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 24595
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 9200
+        }
+      },
+      "totalProfessionXp": 8386012,
+      "totalSkillXp": 610671
+    },
+    {
+      "playerId": "864691128472668630",
+      "username": "Hydralupis",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1538004
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1202845
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 957044
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 1215348
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 1505933
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 283110
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1330404
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 2518508
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 2390679
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 2982041
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 2481091
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 2363158
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 2429779
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 442723
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 129000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 309100
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 303609
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 356374
+        }
+      },
+      "totalProfessionXp": 20768165,
+      "totalSkillXp": 3970585
+    },
+    {
+      "playerId": "576460752317373581",
+      "username": "AJelloCube",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 521697
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 297304
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 993001
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 578605
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 908601
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 2715305
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 725396
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 136339
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 983302
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 79583
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 352174
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 297457
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 458882
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 288613
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 62300
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 302090
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 308484
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 315971
+        }
+      },
+      "totalProfessionXp": 8588764,
+      "totalSkillXp": 1736340
+    },
+    {
+      "playerId": "504403158281447197",
+      "username": "Luckless",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 86103
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 293583
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 2831138
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 395529
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 130077
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 61378
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 39995
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 150776
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 177456
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 194887
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 108976
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 19302
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 29238
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 129100
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 12000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 164869
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 86622
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 27000
+        }
+      },
+      "totalProfessionXp": 4489200,
+      "totalSkillXp": 448829
+    },
+    {
+      "playerId": "576460752317374781",
+      "username": "ZDStudios",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 78852
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 2109927
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 61528
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 623831
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 60793
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 82591
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 103662
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 32925
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 67060
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 4415
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 90264
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 2093436
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 8808
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 12216
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 17000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 48198
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 103632
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 31003
+        }
+      },
+      "totalProfessionXp": 5409284,
+      "totalSkillXp": 220857
+    },
+    {
+      "playerId": "1369094286737157438",
+      "username": "Next",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 218678
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 517494
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 1991626
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 1320935
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 215186
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 552779
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 861932
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 164103
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 262886
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 508325
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 291958
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 8497
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 52304
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 69205
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 9000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 388629
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 480393
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 254024
+        }
+      },
+      "totalProfessionXp": 6914399,
+      "totalSkillXp": 1253555
+    },
+    {
+      "playerId": "576460752317374046",
+      "username": "Serialkiller134",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 91629
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 4117
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 11180
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 15452
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 61695
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 1202471
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1649183
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 16621
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 60409
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 62792
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 55753
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 17237
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 49600
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 29752
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 32500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 94385
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 539290
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 54542
+        }
+      },
+      "totalProfessionXp": 3248539,
+      "totalSkillXp": 800069
+    },
+    {
+      "playerId": "504403158281517927",
+      "username": "BlobfishEGirl",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 1178315
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 1247929
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 925970
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 783582
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 936039
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 453214
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 517908
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 746484
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 642118
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 241743
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 510270
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 600623
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 87976
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 157228
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 32000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 229735
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 123269
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 115064
+        }
+      },
+      "totalProfessionXp": 8784195,
+      "totalSkillXp": 745272
+    },
+    {
+      "playerId": "1224979098660014465",
+      "username": "sunsetoned",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 809784
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 928146
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 918210
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 753908
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 1081086
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 201069
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 382667
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 571997
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 733150
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 404307
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 625419
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 568940
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 91643
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 261219
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 61700
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 155606
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 138323
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 208512
+        }
+      },
+      "totalProfessionXp": 7978683,
+      "totalSkillXp": 917003
+    },
+    {
+      "playerId": "648518346354066428",
+      "username": "Archyy",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 76688
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 467814
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 507648
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 186003
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 76072
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 11320
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 6582
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 19666
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 123821
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 299
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 91511
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 15442
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 5500
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 927521
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 13000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 40078
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 24669
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 13520
+        }
+      },
+      "totalProfessionXp": 1582866,
+      "totalSkillXp": 1024288
+    },
+    {
+      "playerId": "1369094286737070917",
+      "username": "LegzPlay",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 858601
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 21880
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 341830
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 216536
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 686473
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 71845
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 70339
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 120350
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 416599
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 9268
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 597050
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 64634
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 147732
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 67808
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 14000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 39559
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 125130
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 4000
+        }
+      },
+      "totalProfessionXp": 3475405,
+      "totalSkillXp": 398229
+    },
+    {
+      "playerId": "864691128472670235",
+      "username": "Lifetakker",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 164231
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 134035
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 55409
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 87917
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 70329
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 583560
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 661471
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 3683
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 37467
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 28031
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 38437
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 23496
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 41474
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 123311
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 10000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 39148
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 120177
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 19842
+        }
+      },
+      "totalProfessionXp": 1888066,
+      "totalSkillXp": 353952
+    },
+    {
+      "playerId": "576460752317375884",
+      "username": "Minko",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 153329
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 20763
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 5453
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 138162
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 347570
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 364528
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 569162
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 13994
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 254088
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 34606
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 472943
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 190099
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 45415
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 13376
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 9000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 53765
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 141762
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 3000
+        }
+      },
+      "totalProfessionXp": 2564697,
+      "totalSkillXp": 266318
+    },
+    {
+      "playerId": "576460752317375141",
+      "username": "Kobold",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 42110
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 2177
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 36247
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 12939
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 15988
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 1094
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1139
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 224214
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 384998
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 9102
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 451397
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 1029
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 9673
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 2428
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 8000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 3382
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 16902
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 0
+        }
+      },
+      "totalProfessionXp": 1182434,
+      "totalSkillXp": 40385
+    },
+    {
+      "playerId": "1008806316547465133",
+      "username": "Satharis",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 277001
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 45501
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 41364
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 49973
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 356706
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 10212
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 15700
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 206363
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 263895
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 8832
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 254887
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 70706
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 72989
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 5668
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 8500
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 8550
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 12644
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 8280
+        }
+      },
+      "totalProfessionXp": 1601140,
+      "totalSkillXp": 116631
+    },
+    {
+      "playerId": "1297036692701398520",
+      "username": "Saple",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 736
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 146488
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 0
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 32439
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 194
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 1645
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 4510
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 0
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 9301
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 0
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 14111
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 65088
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 2230
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 1512
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 2000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 4000
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 2800
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 0
+        }
+      },
+      "totalProfessionXp": 274512,
+      "totalSkillXp": 12542
+    },
+    {
+      "playerId": "1297036692699979138",
+      "username": "Bacchasnail",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 138177
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 57947
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 18825
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 63537
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 38850
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 6610
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 11096
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 9151
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 35066
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 16796
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 38817
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 33087
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 500
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 25068
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 0
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 11000
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 53781
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 15820
+        }
+      },
+      "totalProfessionXp": 467959,
+      "totalSkillXp": 106169
+    },
+    {
+      "playerId": "864691128473151824",
+      "username": "HaroTheLaziest",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 107780
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 120432
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 103595
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 107091
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 105520
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 106293
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 106325
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 53426
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 103318
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 55498
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 103210
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 106348
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 18500
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 34812
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 14000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 11550
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 31617
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 24472
+        }
+      },
+      "totalProfessionXp": 1178836,
+      "totalSkillXp": 134951
+    },
+    {
+      "playerId": "864691128472667580",
+      "username": "AnkaTheBnnuy",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 56837
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 96760
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 3250
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 106596
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 75926
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 1370
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 1952
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 10872
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 16295
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 2823
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 163
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 32341
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 11059
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 10668
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 17000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 0
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 9182
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 4280
+        }
+      },
+      "totalProfessionXp": 405185,
+      "totalSkillXp": 52189
+    },
+    {
+      "playerId": "1008806316547965739",
+      "username": "Lynical",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 5575
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 6880
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 87804
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 10060
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 7411
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 10759
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 21323
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 488
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 7143
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 500
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 10076
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 11705
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 500
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 8944
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 0
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 0
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 500
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 0
+        }
+      },
+      "totalProfessionXp": 179724,
+      "totalSkillXp": 9944
+    },
+    {
+      "playerId": "1224979098660613199",
+      "username": "Re1er",
+      "professionExperience": {
+        "Carpentry": {
+          "skillId": 3,
+          "name": "Carpentry",
+          "xp": 7924
+        },
+        "Farming": {
+          "skillId": 11,
+          "name": "Farming",
+          "xp": 8223
+        },
+        "Fishing": {
+          "skillId": 12,
+          "name": "Fishing",
+          "xp": 16919
+        },
+        "Foraging": {
+          "skillId": 14,
+          "name": "Foraging",
+          "xp": 5815
+        },
+        "Forestry": {
+          "skillId": 2,
+          "name": "Forestry",
+          "xp": 4087
+        },
+        "Hunting": {
+          "skillId": 9,
+          "name": "Hunting",
+          "xp": 2234
+        },
+        "Leatherworking": {
+          "skillId": 8,
+          "name": "Leatherworking",
+          "xp": 2684
+        },
+        "Masonry": {
+          "skillId": 4,
+          "name": "Masonry",
+          "xp": 1220
+        },
+        "Mining": {
+          "skillId": 5,
+          "name": "Mining",
+          "xp": 1547
+        },
+        "Scholar": {
+          "skillId": 7,
+          "name": "Scholar",
+          "xp": 0
+        },
+        "Smithing": {
+          "skillId": 6,
+          "name": "Smithing",
+          "xp": 0
+        },
+        "Tailoring": {
+          "skillId": 10,
+          "name": "Tailoring",
+          "xp": 9348
+        }
+      },
+      "skillExperience": {
+        "Skill 1": {
+          "skillId": 1,
+          "name": "Skill 1",
+          "xp": 0
+        },
+        "Construction": {
+          "skillId": 15,
+          "name": "Construction",
+          "xp": 500
+        },
+        "Cooking": {
+          "skillId": 13,
+          "name": "Cooking",
+          "xp": 5092
+        },
+        "Skill 22": {
+          "skillId": 22,
+          "name": "Skill 22",
+          "xp": 0
+        },
+        "Merchanting": {
+          "skillId": 19,
+          "name": "Merchanting",
+          "xp": 2000
+        },
+        "Sailing": {
+          "skillId": 21,
+          "name": "Sailing",
+          "xp": 4000
+        },
+        "Slayer": {
+          "skillId": 18,
+          "name": "Slayer",
+          "xp": 500
+        },
+        "Taming": {
+          "skillId": 17,
+          "name": "Taming",
+          "xp": 0
+        }
+      },
+      "totalProfessionXp": 60001,
+      "totalSkillXp": 12092
+    }
+  ]
+}
