@@ -4,8 +4,8 @@ const FIXED_CLAIM_ID = "1008806316547592462";
 const FIXED_CLAIM_NAME = "New Aquila";
 const DEFAULT_BASELINE_FILE = "snapshot-1008806316547592462-2026-03-02T07-40-09-231Z.json";
 
-const statusEl = document.getElementById("status");
-const claimSummaryEl = document.getElementById("claim-summary");
+const statusEl = document.getElementById("load-status");
+const claimLockupDetailsEl = document.getElementById("claim-lockup-details");
 const professionSummaryEl = document.getElementById("profession-summary");
 const professionGridEl = document.getElementById("profession-grid");
 const playerTableEl = document.getElementById("player-table");
@@ -230,10 +230,10 @@ function categorizedToolsFromInventoriesPayload(payload) {
 }
 
 function renderClaimSummary(claim) {
-  claimSummaryEl.classList.remove("hidden");
-  claimSummaryEl.innerHTML = `
-    <h2>Claim: ${FIXED_CLAIM_NAME}</h2>
-    <p class="small">Entity ID: ${claim.entityId ?? "-"} • Region: ${claim.regionName ?? claim.region?.name ?? "Unknown"} • Tier: ${claim.tier ?? "-"}</p>
+  claimLockupDetailsEl.innerHTML = `
+    <div class="small">Claim</div>
+    <strong>${FIXED_CLAIM_NAME}</strong>
+    <div class="small">Entity ID: ${claim.entityId ?? "-"} • Region: ${claim.regionName ?? claim.region?.name ?? "Unknown"} • Tier: ${claim.tier ?? "-"}</div>
   `;
 }
 

@@ -16,13 +16,16 @@
             Data source:
             <a href="https://bitjita.com" target="_blank" rel="noreferrer">bitjita.com</a>
           </p>
+          <p id="load-status" class="small">Ready.</p>
         </header>
 
         <section class="controls card">
           <div class="claim-lockup">
-            <div class="small">Claim</div>
-            <strong>New Aquila</strong>
-            <div class="small">Entity ID: 1008806316547592462</div>
+            <div id="claim-lockup-details">
+              <div class="small">Claim</div>
+              <strong>New Aquila</strong>
+              <div class="small">Entity ID: 1008806316547592462 • Region: Lumethis • Tier: 3</div>
+            </div>
             <button id="reload-claim" type="button">Reload Claim Data</button>
           </div>
           <div id="kpi-strip" class="kpi-strip hidden"></div>
@@ -34,9 +37,6 @@
       </section>
 
       <section class="overview-grid">
-        <section id="status" class="card">Ready.</section>
-        <section id="claim-summary" class="card hidden"></section>
-
         <section id="profession-summary" class="card hidden">
           <h2>Profession XP Summary</h2>
           <div id="profession-grid" class="profession-grid"></div>
