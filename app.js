@@ -119,6 +119,40 @@ function resolveCurrentToolForProfession(professionName, gear) {
   return tools[0];
 }
 
+function detectToolTierFromLabel(label) {
+  const normalized = String(label ?? "").toLowerCase();
+  for (const [tier, tierName] of Object.entries(typeof window !== "undefined" && window.toolTierNames ? window.toolTierNames : {})) {
+    if (normalized.includes(String(tierName).toLowerCase())) {
+      return toNumber(tier, NaN);
+    }
+  }
+  return NaN;
+}
+
+function getBestOwnedToolTierForProfession(professionName, gear) {
+  const tools = gear?.tools ?? [];
+  if (!tools.length) return null;
+
+  const mapping = resolveToolMappingForProfession(professionName, null);
+  if (mapping.mappingMissing || !mapping.namePatterns.length) return null;
+
+  const normalizedPatterns = mapping.namePatterns.map((pattern) => String(pattern).toLowerCase());
+  let bestTier = NaN;
+
+  for (const toolLabel of tools) {
+    const normalizedTool = String(toolLabel).toLowerCase();
+    const matchesProfessionFamily = normalizedPatterns.some((pattern) => normalizedTool.includes(pattern));
+    if (!matchesProfessionFamily) continue;
+
+    const detectedTier = detectToolTierFromLabel(toolLabel);
+    if (Number.isFinite(detectedTier)) {
+      bestTier = Number.isFinite(bestTier) ? Math.max(bestTier, detectedTier) : detectedTier;
+    }
+  }
+
+  return Number.isFinite(bestTier) ? bestTier : null;
+}
+
 function getMaxTierFromLevel(level) {
   const normalizedLevel = Math.max(0, toNumber(level, 0));
   if (normalizedLevel >= 70) return 10;
@@ -465,6 +499,7 @@ async function loadClaim(claimId) {
     for (const [skillId, currentXp] of currentBySkillId.entries()) {
       const baselineXp = baselineXpBySkillId.get(skillId) ?? 0;
       const deltaXp = Math.max(0, currentXp - baselineXp);
+      if (deltaXp <= 0) continue;
       const name = skillNameById.get(skillId) ?? `Skill ${skillId}`;
       const level = toNumber(live?.skills?.[skillId] ?? 0, 0);
       const mapping = resolveToolMappingForProfession(name, claim?.tier);
@@ -474,6 +509,11 @@ async function loadClaim(claimId) {
       const tierName = getToolTierName(baseTier);
       if (!tierName) baselineState.tierDataUnavailable = true;
       const limitBadge = Number.isFinite(toNumber(claim?.tier, NaN)) && toNumber(claim?.tier, NaN) < getMaxTierFromLevel(level) ? "Claim cap" : "Level cap";
+
+      const bestOwnedTier = getBestOwnedToolTierForProfession(name, row.gear);
+      if (Number.isFinite(baseTier) && Number.isFinite(bestOwnedTier) && bestOwnedTier >= baseTier) {
+        continue;
+      }
 
       profs.push({
         skillId,
