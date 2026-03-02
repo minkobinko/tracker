@@ -304,7 +304,7 @@ function renderRecommendations(data, states) {
   if (states.baselineMissing) warnings.push("Baseline missing");
   if (states.mappingMissing) warnings.push("Mapping missing for one or more professions");
   if (states.tierDataUnavailable) warnings.push("Tier data unavailable for one or more entries");
-  recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Upgrade opportunities are ready.";
+  recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Recommendations ready.";
 
   const renderedRows = data.flatMap((player) => player.top3.map((profession, index) => ({ player, profession, index })));
   if (!renderedRows.length) {
