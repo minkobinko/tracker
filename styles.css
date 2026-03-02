@@ -137,3 +137,40 @@ ul {
 .ok {
   color: var(--ok);
 }
+
+
+.gear-categories {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.gear-group ul {
+  margin-top: 0.3rem;
+}
+
+
+.gear-preview summary {
+  cursor: pointer;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.gear-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.gear-chip {
+  border: 1px solid #3d4e72;
+  background: #121b2a;
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.gear-group .small {
+  margin-top: 0.25rem;
+}
