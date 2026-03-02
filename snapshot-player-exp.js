@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('node:fs/promises');
+const { resolveProfessionToolFamily } = require('./src/recommendations/toolResolver');
 
 const API_BASE = 'https://bitjita.com';
 
@@ -66,6 +67,8 @@ async function apiGet(path) {
   const response = await fetch(`${API_BASE}${path}`, {
     headers: {
       Accept: 'application/json',
+      'x-app-identifier': 'tracker-snapshot-script',
+      'User-Agent': 'tracker-snapshot-script/1.0',
     },
   });
 
@@ -110,6 +113,7 @@ async function main() {
 
     const professionExperience = {};
     const skillExperience = {};
+    const professionToolMapping = {};
 
     for (const expEntry of experience) {
       const skillId = Number(expEntry.skill_id ?? expEntry.skillId ?? expEntry.id);
@@ -126,6 +130,17 @@ async function main() {
 
       if (professionIds.has(skillId) || skillMeta?.type === 'profession') {
         professionExperience[skillName] = lineItem;
+        const mapping = resolveProfessionToolFamily({
+          professionId: skillId,
+          professionName: skillName,
+          tier: claim?.tier,
+        });
+        professionToolMapping[skillName] = {
+          skillId,
+          mappingMissing: mapping.mappingMissing,
+          recommendedNameStem: mapping.recommendedNameStem,
+          uiMessage: mapping.uiMessage,
+        };
       } else {
         skillExperience[skillName] = lineItem;
       }
@@ -137,6 +152,7 @@ async function main() {
       professionExperience,
       skillExperience,
       totalProfessionXp: Object.values(professionExperience).reduce((sum, item) => sum + item.xp, 0),
+      professionToolMapping,
       totalSkillXp: Object.values(skillExperience).reduce((sum, item) => sum + item.xp, 0),
     });
 

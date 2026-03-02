@@ -30,6 +30,7 @@ async function apiGet(path) {
   const response = await fetch(apiUrl(path), {
     headers: {
       Accept: "application/json",
+      "x-app-identifier": "tracker-web-ui",
     },
   });
 
@@ -47,6 +48,93 @@ function pluckArray(payload, ...keys) {
     if (Array.isArray(payload?.data?.[key])) return payload.data[key];
   }
   return [];
+}
+
+
+function getProfessionToolMapByName() {
+  if (typeof window !== 'undefined' && window.professionToolMapByName && typeof window.professionToolMapByName === 'object') {
+    return window.professionToolMapByName;
+  }
+  return {};
+}
+
+function getToolTierName(tier) {
+  const tiers = typeof window !== 'undefined' && window.toolTierNames ? window.toolTierNames : {};
+  return tiers[String(tier)] ?? tiers[Number(tier)] ?? null;
+}
+
+function normalizeProfessionName(value) {
+  return String(value ?? '').trim().toLowerCase();
+}
+
+function resolveToolMappingForProfession(professionName, claimTier) {
+  const mapByName = getProfessionToolMapByName();
+  const mapping = mapByName[normalizeProfessionName(professionName)];
+
+  if (!mapping) {
+    return {
+      mappingMissing: true,
+      uiMessage: 'No tool mapping configured',
+      recommendedNameStem: null,
+      toolType: [],
+      tags: [],
+      namePatterns: [],
+    };
+  }
+
+  const tierName = getToolTierName(claimTier);
+  const recommendedToolName = mapping.recommendedToolName ?? 'Tool';
+
+  return {
+    mappingMissing: false,
+    uiMessage: null,
+    recommendedNameStem: tierName ? `${tierName} ${recommendedToolName}` : recommendedToolName,
+    toolType: Array.isArray(mapping.toolType) ? mapping.toolType : [],
+    tags: Array.isArray(mapping.tags) ? mapping.tags : [],
+    namePatterns: Array.isArray(mapping.namePatterns) ? mapping.namePatterns : [],
+  };
+}
+
+function findCandidateToolItems(inventoriesPayload, mapping) {
+  if (!inventoriesPayload?.items || mapping.mappingMissing) return [];
+
+  const acceptedTypes = new Set(mapping.toolType.map((value) => Number(value)).filter((value) => Number.isFinite(value)));
+  const tags = mapping.tags.map((value) => String(value).toLowerCase());
+  const namePatterns = mapping.namePatterns.map((value) => String(value).toLowerCase());
+
+  return Object.entries(inventoriesPayload.items)
+    .map(([itemId, meta]) => ({ itemId, ...meta }))
+    .filter((item) => {
+      const itemType = Number(item.toolType);
+      const itemTags = String(item.tag ?? item.tags ?? '').toLowerCase();
+      const itemName = String(item.name ?? '').toLowerCase();
+      return (
+        (acceptedTypes.size > 0 && Number.isFinite(itemType) && acceptedTypes.has(itemType)) ||
+        tags.some((tag) => itemTags.includes(tag)) ||
+        namePatterns.some((pattern) => itemName.includes(pattern))
+      );
+    })
+    .slice(0, 3)
+    .map((item) => item.name ?? `Item ${item.itemId}`);
+}
+
+function buildToolRecommendationLabel(primaryProfessionName, claimTier, inventoriesPayload) {
+  if (!primaryProfessionName) {
+    return '<span class="small">No profession data</span>';
+  }
+
+  const mapping = resolveToolMappingForProfession(primaryProfessionName, claimTier);
+  if (mapping.mappingMissing) {
+    return '<span class="small">No tool mapping configured</span>';
+  }
+
+  const candidates = findCandidateToolItems(inventoriesPayload, mapping);
+  const title = mapping.recommendedNameStem ?? 'Recommended Tool';
+  if (!candidates.length) {
+    return `<span class="small">${title} (no matching item metadata)</span>`;
+  }
+
+  return `<strong>${title}:</strong> ${candidates.join(', ')}`;
 }
 
 function detectGearCategory(entry, item) {
@@ -231,6 +319,7 @@ function renderPlayers(rows) {
       <td>${row.highestProfession}</td>
       <td>${row.professionXp.toLocaleString()}</td>
       <td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>
+      <td>${row.recommendedToolLabel}</td>
     `;
     playersBodyEl.appendChild(tr);
   }
@@ -264,6 +353,7 @@ async function loadClaim(claimId) {
     let highestProfession = "N/A";
 
     const levelBySkillId = citizen.skills ?? {};
+    let rankedProfessions = [];
     if (levelBySkillId && typeof levelBySkillId === "object") {
       const ranked = Object.entries(levelBySkillId)
         .map(([skillId, level]) => ({
@@ -274,12 +364,14 @@ async function loadClaim(claimId) {
         .filter((entry) => entry.name)
         .sort((a, b) => b.level - a.level);
 
+      rankedProfessions = ranked;
       if (ranked.length) {
         highestProfession = `${ranked[0].name} (Lv ${ranked[0].level})`;
       }
     }
 
     let gear = null;
+    let inventoriesPayloadForRecommendations = null;
     if (playerId) {
       try {
         const [equipmentPayload, playerPayload, inventoriesPayload] = await Promise.all([
@@ -288,6 +380,7 @@ async function loadClaim(claimId) {
           apiGet(`/api/players/${playerId}/inventories`),
         ]);
 
+        inventoriesPayloadForRecommendations = inventoriesPayload;
         gear = categorizedGearFromEquipmentPayload(equipmentPayload);
         mergeCategories(gear, categorizedToolsFromInventoriesPayload(inventoriesPayload));
 
@@ -336,6 +429,7 @@ async function loadClaim(claimId) {
       highestProfession,
       professionXp,
       gear,
+      recommendedToolLabel: buildToolRecommendationLabel(rankedProfessions[0]?.name, claim?.tier, inventoriesPayloadForRecommendations),
     });
 
     await new Promise((resolve) => setTimeout(resolve, 160));
