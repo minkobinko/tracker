@@ -354,7 +354,7 @@ function renderRecommendations(data, states) {
     const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
 
     tr.innerHTML = `
-      <td id="recommendation-${player.playerId}">${index === 0 ? player.username : ""}</td>
+      <td id="recommendation-${player.playerId}">${index === 0 ? `<span class="table-link">${player.username}</span>` : ""}</td>
       <td>${profession.name}</td>
       <td>${profession.deltaXp.toLocaleString()}</td>
       <td>${profession.level}</td>
