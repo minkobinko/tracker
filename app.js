@@ -252,37 +252,8 @@ function renderPlayers(rows) {
 }
 
 function getSkillMappings(skillsPayload) {
-  const mappings = new Map();
-
-  const mark = (skill, defaultType = "skill") => {
-    if (!skill || typeof skill !== "object") return;
-    const skillId = Number(skill.id ?? skill.skill_id ?? skill.skillId);
-    if (!Number.isFinite(skillId)) return;
-
-    const name = String(skill.name ?? skill.skill_name ?? "").trim();
-    if (!name) return;
-
-    const type = String(skill.type ?? defaultType).toLowerCase();
-    const category = String(skill.category ?? "").toLowerCase();
-    const isProfession = type === "profession" || category === "profession";
-    if (!isProfession) return;
-
-    mappings.set(skillId, name);
-  };
-
-  const markList = (items, defaultType) => {
-    for (const skill of items ?? []) {
-      mark(skill, defaultType);
-    }
-  };
-
-  markList(pluckArray(skillsPayload, "profession", "professions"), "profession");
-  markList(skillsPayload?.skills, "skill");
-  markList(skillsPayload?.data?.skills, "skill");
-  markList(skillsPayload?.data?.profession, "profession");
-  markList(skillsPayload?.data?.professions, "profession");
-
-  return mappings;
+  const professionSkills = pluckArray(skillsPayload, "profession", "professions");
+  return new Map(professionSkills.map((skill) => [Number(skill.id), skill.name]));
 }
 
 async function loadBaselineSnapshot(path = DEFAULT_BASELINE_FILE) {
