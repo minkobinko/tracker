@@ -1,0 +1,139 @@
+:root {
+  color-scheme: dark;
+  --bg: #10141c;
+  --card: #1a2130;
+  --accent: #53d4ff;
+  --text: #e5edff;
+  --muted: #9fb4d7;
+  --ok: #8dff9d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top, #1b2740 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+.container {
+  width: min(1100px, 92vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0.3rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+.card {
+  background: color-mix(in oklab, var(--card) 85%, black 15%);
+  border: 1px solid #2f3b56;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.controls form {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+input,
+button {
+  font: inherit;
+  border-radius: 8px;
+  border: 1px solid #425270;
+  padding: 0.6rem 0.8rem;
+}
+
+input {
+  min-width: 320px;
+  background: #0f1520;
+  color: var(--text);
+}
+
+button {
+  background: linear-gradient(90deg, #0ca5ca, #1884d8);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+}
+
+.meta,
+.small {
+  color: var(--muted);
+  margin: 0.6rem 0 0;
+  font-size: 0.92rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.profession-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.7rem;
+}
+
+.profession-tile {
+  background: #111a28;
+  border: 1px solid #32415d;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.profession-tile h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.7rem;
+  border-bottom: 1px solid #31415e;
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.ok {
+  color: var(--ok);
+}

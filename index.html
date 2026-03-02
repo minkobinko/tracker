@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitjita Claim XP + Tools Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Bitjita Claim XP + Tools Tracker</h1>
+        <p>
+          Track profession XP and equipped tools/gear for players in a claim.
+          Data source:
+          <a href="https://bitjita.com" target="_blank" rel="noreferrer">bitjita.com</a>
+        </p>
+      </header>
+
+      <section class="controls card">
+        <form id="claim-form">
+          <label for="claim-id">Claim Entity ID</label>
+          <input
+            id="claim-id"
+            name="claimId"
+            type="text"
+            value="1008806316547592462"
+            required
+          />
+          <button type="submit">Load Claim</button>
+        </form>
+        <p class="meta">
+          Uses <code>User-Agent</code> header and keeps requests conservative for the
+          250 req/min API limit.
+        </p>
+      </section>
+
+      <section id="status" class="card">Ready.</section>
+
+      <section id="claim-summary" class="card hidden"></section>
+
+      <section id="profession-summary" class="card hidden">
+        <h2>Profession XP Summary</h2>
+        <div id="profession-grid" class="profession-grid"></div>
+      </section>
+
+      <section id="player-table" class="card hidden">
+        <h2>Players in Claim</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Highest Profession</th>
+                <th>Profession XP (sum)</th>
+                <th>Equipped Tools / Gear</th>
+              </tr>
+            </thead>
+            <tbody id="players-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
