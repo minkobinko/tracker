@@ -296,23 +296,25 @@ function renderRecommendations(data, states) {
   recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Recommendations ready.";
 
   if (!data.length) {
-    recommendationsBodyEl.innerHTML = `<tr><td colspan="7" class="small">No recommendation data available.</td></tr>`;
+    recommendationsBodyEl.innerHTML = `<tr><td colspan="6" class="small">No recommendation data available.</td></tr>`;
     return;
   }
 
   for (const player of data) {
     for (const [index, profession] of player.top3.entries()) {
       const tr = document.createElement("tr");
-      const tierText = Number.isFinite(profession.recommendedTier)
-        ? `${getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}`}`
-        : '<span class="small">N/A</span>';
+      const recommendedTool = (() => {
+        const family = profession.recommendedFamily ?? "Unknown";
+        if (!Number.isFinite(profession.recommendedTier)) return family;
+        const tierName = getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}`;
+        return `${tierName} ${family}`;
+      })();
       tr.innerHTML = `
         <td id="recommendation-${player.playerId}">${index === 0 ? player.username : ""}</td>
         <td>${profession.name}</td>
         <td>${profession.deltaXp.toLocaleString()}</td>
         <td>${profession.level}</td>
-        <td>${profession.recommendedFamily}</td>
-        <td>${tierText}</td>
+        <td>${recommendedTool}</td>
         <td><span class="limit-badge">${profession.limitBadge}</span></td>
       `;
       recommendationsBodyEl.appendChild(tr);
