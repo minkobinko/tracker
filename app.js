@@ -86,6 +86,7 @@ function resolveToolMappingForProfession(professionName, claimTier) {
       uiMessage: "Mapping missing",
       recommendedNameStem: null,
       recommendedFamily: "Unknown",
+      namePatterns: [],
     };
   }
 
@@ -97,7 +98,25 @@ function resolveToolMappingForProfession(professionName, claimTier) {
     uiMessage: null,
     recommendedNameStem: tierName ? `${tierName} ${recommendedToolName}` : recommendedToolName,
     recommendedFamily: recommendedToolName,
+    namePatterns: Array.isArray(mapping.namePatterns) ? mapping.namePatterns : [],
   };
+}
+
+function resolveCurrentToolForProfession(professionName, gear) {
+  const tools = gear?.tools ?? [];
+  if (!tools.length) return "None detected";
+
+  const mapping = resolveToolMappingForProfession(professionName, null);
+  if (mapping.mappingMissing || !mapping.namePatterns.length) return tools[0];
+
+  const loweredTools = tools.map((tool) => String(tool).toLowerCase());
+  for (const pattern of mapping.namePatterns) {
+    const normalizedPattern = String(pattern).toLowerCase();
+    const index = loweredTools.findIndex((tool) => tool.includes(normalizedPattern));
+    if (index >= 0) return tools[index];
+  }
+
+  return tools[0];
 }
 
 function getMaxTierFromLevel(level) {
@@ -296,7 +315,7 @@ function renderRecommendations(data, states) {
   recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Recommendations ready.";
 
   if (!data.length) {
-    recommendationsBodyEl.innerHTML = `<tr><td colspan="6" class="small">No recommendation data available.</td></tr>`;
+    recommendationsBodyEl.innerHTML = `<tr><td colspan="7" class="small">No recommendation data available.</td></tr>`;
     return;
   }
 
@@ -309,11 +328,13 @@ function renderRecommendations(data, states) {
         const tierName = getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}`;
         return `${tierName} ${family}`;
       })();
+      const currentTool = resolveCurrentToolForProfession(profession.name, player.gear);
       tr.innerHTML = `
         <td id="recommendation-${player.playerId}">${index === 0 ? player.username : ""}</td>
         <td>${profession.name}</td>
         <td>${profession.deltaXp.toLocaleString()}</td>
         <td>${profession.level}</td>
+        <td>${currentTool}</td>
         <td>${recommendedTool}</td>
         <td><span class="limit-badge">${profession.limitBadge}</span></td>
       `;
@@ -468,7 +489,7 @@ async function loadClaim(claimId) {
     profs.sort((a, b) => b.deltaXp - a.deltaXp);
     const top3 = profs.slice(0, 3);
     const totalDelta = top3.reduce((sum, item) => sum + item.deltaXp, 0);
-    recommendations.push({ playerId: row.playerId, username: row.username, totalDelta, top3 });
+    recommendations.push({ playerId: row.playerId, username: row.username, gear: row.gear, totalDelta, top3 });
   }
 
   recommendations.sort((a, b) => b.totalDelta - a.totalDelta);
