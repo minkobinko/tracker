@@ -203,6 +203,8 @@ ul { margin: 0; padding-left: 1rem; }
 .table-link { color: #8c6400; text-decoration: none; font-weight: 600; }
 .table-link:hover { color: #6f4f00; text-decoration: underline; }
 
+.tier-tool-name { font-weight: 600; font-family: var(--font-sans); }
+
 .limit-badge { display: inline-block; border: 1px solid #dec47b; background: #fff5d3; border-radius: 999px; padding: 0.15rem 0.55rem; font-size: var(--font-size-100); color: #6f5a16; }
 
 .empty-state {
