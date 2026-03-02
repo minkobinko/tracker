@@ -119,6 +119,10 @@ function resolveCurrentToolForProfession(professionName, gear) {
   return tools[0];
 }
 
+function formatCurrentToolForRecommendations(toolLabel) {
+  return String(toolLabel ?? "").replace(/\s*\(toolbelt(?:\s*x\d+)?\)\s*/i, "").trim();
+}
+
 function detectToolTierFromLabel(label) {
   const normalized = String(label ?? "").toLowerCase();
   for (const [tier, tierName] of Object.entries(typeof window !== "undefined" && window.toolTierNames ? window.toolTierNames : {})) {
@@ -362,7 +366,7 @@ function renderRecommendations(data, states) {
         const tierName = getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}`;
         return `${tierName} ${family}`;
       })();
-      const currentTool = resolveCurrentToolForProfession(profession.name, player.gear);
+      const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
       tr.innerHTML = `
         <td id="recommendation-${player.playerId}">${index === 0 ? player.username : ""}</td>
         <td>${profession.name}</td>
