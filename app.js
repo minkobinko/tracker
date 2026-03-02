@@ -332,32 +332,29 @@ function renderProfessionSummary(professionMap, playerCount) {
 function renderGearList(items, previewCount = 4) {
   if (!items.length) return '<span class="small">None</span>';
   const previewItems = items.slice(0, previewCount);
+  const remainingItems = items.slice(previewCount);
   const remainingCount = items.length - previewItems.length;
   const previewHtml = `<ul>${previewItems.map((item) => `<li>${renderTierColoredToolLabel(item)}</li>`).join("")}</ul>`;
   if (remainingCount <= 0) return previewHtml;
-  return `${previewHtml}<div class="small">+${remainingCount} more</div>`;
+  const moreHtml = `<details class="gear-more"><summary class="small">+${remainingCount} more</summary><ul>${remainingItems
+    .map((item) => `<li>${renderTierColoredToolLabel(item)}</li>`)
+    .join("")}</ul></details>`;
+  return `${previewHtml}${moreHtml}`;
 }
 
 function renderGearCategories(gear) {
   const sections = [["Tools", gear.tools], ["Clothes / Armor", gear.clothesArmor], ["Accessories", gear.accessories]];
   const chips = sections.map(([title, items]) => `<span class="gear-chip">${title}: ${items.length}</span>`).join("");
   const details = sections.map(([title, items]) => `<div class="gear-group"><strong>${title}:</strong>${renderGearList(items)}</div>`).join("");
-  return `<details class="gear-preview"><summary>Preview</summary><div class="gear-chips">${chips}</div><div class="gear-categories">${details}</div></details>`;
+  return `<details class="gear-preview"><summary>Expand</summary><div class="gear-chips">${chips}</div><div class="gear-categories">${details}</div></details>`;
 }
 
 function renderPlayers(rows) {
   playersBodyEl.innerHTML = "";
-  const renderToolLabel = typeof renderTierColoredToolLabel === "function" ? renderTierColoredToolLabel : (label) => String(label ?? "");
 
   for (const row of rows) {
     const tr = document.createElement("tr");
-    const professionName = String(row.highestProfession ?? "").split(" (Lv")[0].trim();
-    const claimTool = professionName && professionName !== "N/A"
-      ? formatCurrentToolForRecommendations(resolveCurrentToolForProfession(professionName, row.gear))
-      : "";
-    const claimToolLabel = claimTool ? `<div class="small">Tool: ${renderToolLabel(claimTool)}</div>` : "";
-
-    tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}${claimToolLabel}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
+    tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
     playersBodyEl.appendChild(tr);
   }
 
