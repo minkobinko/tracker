@@ -1,16 +1,24 @@
 const API_BASE = "https://bitjita.com";
 const CORS_PROXY = "https://corsproxy.io/?";
 const DEFAULT_BASELINE_FILE = "snapshot-1008806316547592462-2026-03-02T07-40-09-231Z.json";
+
 const statusEl = document.getElementById("status");
 const claimSummaryEl = document.getElementById("claim-summary");
 const professionSummaryEl = document.getElementById("profession-summary");
 const professionGridEl = document.getElementById("profession-grid");
 const playerTableEl = document.getElementById("player-table");
 const playersBodyEl = document.getElementById("players-body");
+const playersEmptyEl = document.getElementById("players-empty");
 const recommendationsEl = document.getElementById("recommendations");
 const recommendationsBodyEl = document.getElementById("recommendations-body");
 const recommendationsStateEl = document.getElementById("recommendations-state");
+const recommendationsEmptyEl = document.getElementById("recommendations-empty");
+const kpiStripEl = document.getElementById("kpi-strip");
+const searchInputEl = document.getElementById("player-search");
+const upgradeOnlyEl = document.getElementById("upgrade-only");
 const form = document.getElementById("claim-form");
+
+const uiState = { rows: [], recommendations: [], recommendationStates: {}, searchTerm: "", actionableOnly: false };
 
 function setStatus(message, isError = false) {
   statusEl.textContent = message;
@@ -29,10 +37,7 @@ function apiUrl(path) {
 
 async function apiGet(path) {
   const response = await fetch(apiUrl(path), {
-    headers: {
-      Accept: "application/json",
-      "x-app-identifier": "tracker-web-ui",
-    },
+    headers: { Accept: "application/json", "x-app-identifier": "tracker-web-ui" },
   });
 
   if (!response.ok) {
@@ -57,11 +62,7 @@ function toNumber(value, fallback = 0) {
 }
 
 function getProfessionToolMapByName() {
-  if (
-    typeof window !== "undefined" &&
-    window.professionToolMapByName &&
-    typeof window.professionToolMapByName === "object"
-  ) {
+  if (typeof window !== "undefined" && window.professionToolMapByName && typeof window.professionToolMapByName === "object") {
     return window.professionToolMapByName;
   }
   return {};
@@ -81,13 +82,7 @@ function resolveToolMappingForProfession(professionName, claimTier) {
   const mapping = mapByName[normalizeProfessionName(professionName)];
 
   if (!mapping) {
-    return {
-      mappingMissing: true,
-      uiMessage: "Mapping missing",
-      recommendedNameStem: null,
-      recommendedFamily: "Unknown",
-      namePatterns: [],
-    };
+    return { mappingMissing: true, recommendedNameStem: null, recommendedFamily: "Unknown", namePatterns: [] };
   }
 
   const tierName = getToolTierName(claimTier);
@@ -95,7 +90,6 @@ function resolveToolMappingForProfession(professionName, claimTier) {
 
   return {
     mappingMissing: false,
-    uiMessage: null,
     recommendedNameStem: tierName ? `${tierName} ${recommendedToolName}` : recommendedToolName,
     recommendedFamily: recommendedToolName,
     namePatterns: Array.isArray(mapping.namePatterns) ? mapping.namePatterns : [],
@@ -126,9 +120,7 @@ function formatCurrentToolForRecommendations(toolLabel) {
 function detectToolTierFromLabel(label) {
   const normalized = String(label ?? "").toLowerCase();
   for (const [tier, tierName] of Object.entries(typeof window !== "undefined" && window.toolTierNames ? window.toolTierNames : {})) {
-    if (normalized.includes(String(tierName).toLowerCase())) {
-      return toNumber(tier, NaN);
-    }
+    if (normalized.includes(String(tierName).toLowerCase())) return toNumber(tier, NaN);
   }
   return NaN;
 }
@@ -145,13 +137,10 @@ function getBestOwnedToolTierForProfession(professionName, gear) {
 
   for (const toolLabel of tools) {
     const normalizedTool = String(toolLabel).toLowerCase();
-    const matchesProfessionFamily = normalizedPatterns.some((pattern) => normalizedTool.includes(pattern));
-    if (!matchesProfessionFamily) continue;
+    if (!normalizedPatterns.some((pattern) => normalizedTool.includes(pattern))) continue;
 
     const detectedTier = detectToolTierFromLabel(toolLabel);
-    if (Number.isFinite(detectedTier)) {
-      bestTier = Number.isFinite(bestTier) ? Math.max(bestTier, detectedTier) : detectedTier;
-    }
+    if (Number.isFinite(detectedTier)) bestTier = Number.isFinite(bestTier) ? Math.max(bestTier, detectedTier) : detectedTier;
   }
 
   return Number.isFinite(bestTier) ? bestTier : null;
@@ -181,14 +170,9 @@ function getRecommendedTier(professionLevel, claimTier) {
 function detectGearCategory(entry, item) {
   const slot = (entry.primary ?? entry.slot ?? entry.slotName ?? item.slot ?? "").toLowerCase();
   const tags = (item.tags ?? item.tag ?? "").toLowerCase();
-
   if (slot.includes("hand_clothing")) return "clothesArmor";
-  if (slot.includes("artifact") || slot.includes("ring") || slot.includes("neck") || tags.includes("accessor")) {
-    return "accessories";
-  }
-  if (slot.includes("clothing") || slot.includes("armor") || slot.includes("head") || tags.includes("cloth")) {
-    return "clothesArmor";
-  }
+  if (slot.includes("artifact") || slot.includes("ring") || slot.includes("neck") || tags.includes("accessor")) return "accessories";
+  if (slot.includes("clothing") || slot.includes("armor") || slot.includes("head") || tags.includes("cloth")) return "clothesArmor";
   if (slot.includes("hand") || slot.includes("tool") || tags.includes("tool")) return "tools";
   return "accessories";
 }
@@ -247,10 +231,26 @@ function renderClaimSummary(claim) {
   claimSummaryEl.classList.remove("hidden");
   claimSummaryEl.innerHTML = `
     <h2>Claim: ${claim.name ?? claim.entityName ?? claim.entityId}</h2>
-    <p class="small">
-      Entity ID: ${claim.entityId ?? "-"} • Region: ${claim.regionName ?? claim.region?.name ?? "Unknown"} • Tier: ${claim.tier ?? "-"}
-    </p>
+    <p class="small">Entity ID: ${claim.entityId ?? "-"} • Region: ${claim.regionName ?? claim.region?.name ?? "Unknown"} • Tier: ${claim.tier ?? "-"}</p>
   `;
+}
+
+function renderKpis(rows, recommendations) {
+  const actionablePlayers = recommendations.filter((entry) => entry.top3.length > 0).length;
+  const totalUpgrades = recommendations.reduce((sum, entry) => sum + entry.top3.length, 0);
+  const totalDelta = recommendations.reduce((sum, entry) => sum + entry.totalDelta, 0);
+  const avgXp = rows.length ? Math.round(rows.reduce((sum, row) => sum + row.professionXp, 0) / rows.length) : 0;
+
+  const kpis = [
+    ["Players", rows.length.toLocaleString()],
+    ["Actionable players", actionablePlayers.toLocaleString()],
+    ["Upgrade suggestions", totalUpgrades.toLocaleString()],
+    ["Recent Δ XP (top3)", totalDelta.toLocaleString()],
+    ["Avg profession XP", avgXp.toLocaleString()],
+  ];
+
+  kpiStripEl.innerHTML = kpis.map(([label, value]) => `<article class="kpi-tile"><div class="kpi-label">${label}</div><div class="kpi-value">${value}</div></article>`).join("");
+  kpiStripEl.classList.remove("hidden");
 }
 
 function renderProfessionSummary(professionMap, playerCount) {
@@ -261,12 +261,7 @@ function renderProfessionSummary(professionMap, playerCount) {
     const avgLevel = playerCount ? (stat.totalLevel / playerCount).toFixed(2) : "0.00";
     const tile = document.createElement("article");
     tile.className = "profession-tile";
-    tile.innerHTML = `
-      <h3>${name}</h3>
-      <div>Total XP: <strong>${stat.totalXp.toLocaleString()}</strong></div>
-      <div>Avg Level: <strong>${avgLevel}</strong></div>
-      <div>Tracked players: <strong>${stat.players}</strong></div>
-    `;
+    tile.innerHTML = `<h3>${name}</h3><div>Total XP: <strong>${stat.totalXp.toLocaleString()}</strong></div><div>Avg Level: <strong>${avgLevel}</strong></div><div>Tracked players: <strong>${stat.players}</strong></div>`;
     professionGridEl.appendChild(tile);
   }
 
@@ -285,26 +280,58 @@ function renderGearList(items, previewCount = 4) {
 function renderGearCategories(gear) {
   const sections = [["Tools", gear.tools], ["Clothes / Armor", gear.clothesArmor], ["Accessories", gear.accessories]];
   const chips = sections.map(([title, items]) => `<span class="gear-chip">${title}: ${items.length}</span>`).join("");
-  const detailContent = sections
-    .map(([title, items]) => `<div class="gear-group"><strong>${title}:</strong>${renderGearList(items)}</div>`)
-    .join("");
-
-  return `<details class="gear-preview"><summary>Preview</summary><div class="gear-chips">${chips}</div><div class="gear-categories">${detailContent}</div></details>`;
+  const details = sections.map(([title, items]) => `<div class="gear-group"><strong>${title}:</strong>${renderGearList(items)}</div>`).join("");
+  return `<details class="gear-preview"><summary>Preview</summary><div class="gear-chips">${chips}</div><div class="gear-categories">${details}</div></details>`;
 }
 
 function renderPlayers(rows) {
   playersBodyEl.innerHTML = "";
   for (const row of rows) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td>
-      <td>${row.highestProfession}</td>
-      <td>${row.professionXp.toLocaleString()}</td>
-      <td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>
-    `;
+    tr.innerHTML = `<td><a href="#recommendation-${row.playerId}" class="table-link">${row.username}</a></td><td>${row.highestProfession}</td><td>${row.professionXp.toLocaleString()}</td><td>${row.gear ? renderGearCategories(row.gear) : "No equipped gear found"}</td>`;
     playersBodyEl.appendChild(tr);
   }
+
+  playersEmptyEl.classList.toggle("hidden", rows.length > 0);
   playerTableEl.classList.remove("hidden");
+}
+
+function renderRecommendations(data, states) {
+  recommendationsBodyEl.innerHTML = "";
+  recommendationsEl.classList.remove("hidden");
+
+  const warnings = [];
+  if (states.baselineMissing) warnings.push("Baseline missing");
+  if (states.mappingMissing) warnings.push("Mapping missing for one or more professions");
+  if (states.tierDataUnavailable) warnings.push("Tier data unavailable for one or more entries");
+  recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Recommendations ready.";
+
+  const renderedRows = data.flatMap((player) => player.top3.map((profession, index) => ({ player, profession, index })));
+  if (!renderedRows.length) {
+    recommendationsEmptyEl.classList.remove("hidden");
+    return;
+  }
+
+  recommendationsEmptyEl.classList.add("hidden");
+  for (const entry of renderedRows) {
+    const { player, profession, index } = entry;
+    const tr = document.createElement("tr");
+    const family = profession.recommendedFamily ?? "Unknown";
+    const tierName = Number.isFinite(profession.recommendedTier) ? getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}` : "";
+    const recommendedTool = tierName ? `${tierName} ${family}` : family;
+    const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
+
+    tr.innerHTML = `
+      <td id="recommendation-${player.playerId}">${index === 0 ? player.username : ""}</td>
+      <td>${profession.name}</td>
+      <td>${profession.deltaXp.toLocaleString()}</td>
+      <td>${profession.level}</td>
+      <td>${currentTool}</td>
+      <td>${recommendedTool}</td>
+      <td><span class="limit-badge">${profession.limitBadge}</span></td>
+    `;
+    recommendationsBodyEl.appendChild(tr);
+  }
 }
 
 function getSkillMappings(skillsPayload) {
@@ -323,12 +350,11 @@ function buildBaselineByPlayer(snapshot, skillNameById) {
   for (const player of snapshot?.players ?? []) {
     const playerId = String(player.playerId ?? player.entityId ?? "");
     if (!playerId) continue;
+
     const xpBySkillId = new Map();
     for (const [label, entry] of Object.entries(player.professionExperience ?? {})) {
       let sid = Number(entry.skillId ?? entry.skill_id);
-      if (!Number.isFinite(sid)) {
-        sid = [...skillNameById.entries()].find(([, name]) => String(name).toLowerCase() === String(label).toLowerCase())?.[0];
-      }
+      if (!Number.isFinite(sid)) sid = [...skillNameById.entries()].find(([, name]) => String(name).toLowerCase() === String(label).toLowerCase())?.[0];
       if (!Number.isFinite(sid)) continue;
       xpBySkillId.set(sid, toNumber(entry.xp ?? entry.quantity, 0));
     }
@@ -337,48 +363,14 @@ function buildBaselineByPlayer(snapshot, skillNameById) {
   return byPlayer;
 }
 
-function getBadgeForFactors(factors) {
-  if (factors.includes("claimTier")) return "Claim cap";
-  return "Level cap";
-}
+function applyFilters() {
+  const filteredRows = uiState.rows.filter((row) => row.username.toLowerCase().includes(uiState.searchTerm));
+  const filteredRecommendations = uiState.recommendations
+    .filter((entry) => filteredRows.some((row) => row.playerId === entry.playerId))
+    .filter((entry) => (uiState.actionableOnly ? entry.top3.length > 0 : true));
 
-function renderRecommendations(data, states) {
-  recommendationsBodyEl.innerHTML = "";
-  recommendationsEl.classList.remove("hidden");
-
-  const warnings = [];
-  if (states.baselineMissing) warnings.push("Baseline missing");
-  if (states.mappingMissing) warnings.push("Mapping missing for one or more professions");
-  if (states.tierDataUnavailable) warnings.push("Tier data unavailable for one or more entries");
-  recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Recommendations ready.";
-
-  if (!data.length) {
-    recommendationsBodyEl.innerHTML = `<tr><td colspan="7" class="small">No recommendation data available.</td></tr>`;
-    return;
-  }
-
-  for (const player of data) {
-    for (const [index, profession] of player.top3.entries()) {
-      const tr = document.createElement("tr");
-      const recommendedTool = (() => {
-        const family = profession.recommendedFamily ?? "Unknown";
-        if (!Number.isFinite(profession.recommendedTier)) return family;
-        const tierName = getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}`;
-        return `${tierName} ${family}`;
-      })();
-      const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
-      tr.innerHTML = `
-        <td id="recommendation-${player.playerId}">${index === 0 ? player.username : ""}</td>
-        <td>${profession.name}</td>
-        <td>${profession.deltaXp.toLocaleString()}</td>
-        <td>${profession.level}</td>
-        <td>${currentTool}</td>
-        <td>${recommendedTool}</td>
-        <td><span class="limit-badge">${profession.limitBadge}</span></td>
-      `;
-      recommendationsBodyEl.appendChild(tr);
-    }
-  }
+  renderPlayers(filteredRows);
+  renderRecommendations(filteredRecommendations, uiState.recommendationStates);
 }
 
 async function loadClaim(claimId) {
@@ -393,7 +385,6 @@ async function loadClaim(claimId) {
   const claim = claimPayload.claim ?? claimPayload.data ?? claimPayload;
   const citizens = pluckArray(citizensPayload, "citizens");
   const skillNameById = getSkillMappings(skillsPayload);
-
   renderClaimSummary(claim);
 
   const professionStats = {};
@@ -429,17 +420,11 @@ async function loadClaim(claimId) {
         mergeCategories(gear, categorizedToolsFromInventoriesPayload(inventoriesPayload));
 
         const player = playerPayload?.player ?? playerPayload;
-        liveByPlayerId.set(playerId, {
-          username,
-          experience: pluckArray(player, "experience"),
-          skills: player.skills ?? citizen.skills ?? {},
-        });
+        liveByPlayerId.set(playerId, { username, experience: pluckArray(player, "experience"), skills: player.skills ?? citizen.skills ?? {} });
 
         const experienceEntries = pluckArray(player, "experience");
         const professionXpEntries = experienceEntries.filter((entry) => skillNameById.has(Number(entry.skill_id)));
-        if (professionXpEntries.length) {
-          professionXp = professionXpEntries.reduce((sum, entry) => sum + Number(entry.quantity ?? 0), 0);
-        }
+        if (professionXpEntries.length) professionXp = professionXpEntries.reduce((sum, entry) => sum + Number(entry.quantity ?? 0), 0);
 
         for (const entry of professionXpEntries) {
           const skillName = skillNameById.get(Number(entry.skill_id));
@@ -461,20 +446,7 @@ async function loadClaim(claimId) {
       if (numericLevel > 0) professionStats[skillName].players += 1;
     }
 
-    rows.push({
-      playerId,
-      username,
-      highestProfession,
-      professionXp,
-      gear,
-      recommendedToolLabel: (() => {
-        const top = rankedProfessions[0]?.name;
-        if (!top) return '<span class="small">No profession data</span>';
-        const resolved = resolveToolMappingForProfession(top, claim?.tier);
-        return resolved.mappingMissing ? '<span class="small">No tool mapping configured</span>' : resolved.recommendedNameStem;
-      })(),
-    });
-
+    rows.push({ playerId, username, highestProfession, professionXp, gear });
     await new Promise((resolve) => setTimeout(resolve, 160));
   }
 
@@ -483,7 +455,7 @@ async function loadClaim(claimId) {
   try {
     const baseline = await loadBaselineSnapshot();
     baselineByPlayer = buildBaselineByPlayer(baseline, skillNameById);
-  } catch (error) {
+  } catch {
     baselineState.baselineMissing = true;
   }
 
@@ -504,30 +476,20 @@ async function loadClaim(claimId) {
       const baselineXp = baselineXpBySkillId.get(skillId) ?? 0;
       const deltaXp = Math.max(0, currentXp - baselineXp);
       if (deltaXp <= 0) continue;
+
       const name = skillNameById.get(skillId) ?? `Skill ${skillId}`;
       const level = toNumber(live?.skills?.[skillId] ?? 0, 0);
       const mapping = resolveToolMappingForProfession(name, claim?.tier);
       if (mapping.mappingMissing) baselineState.mappingMissing = true;
 
       const baseTier = getRecommendedTier(level, claim?.tier);
-      const tierName = getToolTierName(baseTier);
-      if (!tierName) baselineState.tierDataUnavailable = true;
+      if (!getToolTierName(baseTier)) baselineState.tierDataUnavailable = true;
       const limitBadge = Number.isFinite(toNumber(claim?.tier, NaN)) && toNumber(claim?.tier, NaN) < getMaxTierFromLevel(level) ? "Claim cap" : "Level cap";
 
       const bestOwnedTier = getBestOwnedToolTierForProfession(name, row.gear);
-      if (Number.isFinite(baseTier) && Number.isFinite(bestOwnedTier) && bestOwnedTier >= baseTier) {
-        continue;
-      }
+      if (Number.isFinite(baseTier) && Number.isFinite(bestOwnedTier) && bestOwnedTier >= baseTier) continue;
 
-      profs.push({
-        skillId,
-        name,
-        deltaXp,
-        level,
-        recommendedFamily: mapping.recommendedFamily,
-        recommendedTier: baseTier,
-        limitBadge,
-      });
+      profs.push({ skillId, name, deltaXp, level, recommendedFamily: mapping.recommendedFamily, recommendedTier: baseTier, limitBadge });
     }
 
     profs.sort((a, b) => b.deltaXp - a.deltaXp);
@@ -537,11 +499,15 @@ async function loadClaim(claimId) {
   }
 
   recommendations.sort((a, b) => b.totalDelta - a.totalDelta);
+  rows.sort((a, b) => b.professionXp - a.professionXp);
+
+  uiState.rows = rows;
+  uiState.recommendations = recommendations;
+  uiState.recommendationStates = baselineState;
 
   renderProfessionSummary(professionStats, rows.length);
-  renderPlayers(rows.sort((a, b) => b.professionXp - a.professionXp));
-  renderRecommendations(recommendations, baselineState);
-
+  renderKpis(rows, recommendations);
+  applyFilters();
   setStatus(`Loaded ${rows.length} players from claim ${claimId}.`);
 }
 
@@ -554,6 +520,16 @@ form.addEventListener("submit", async (event) => {
   } catch (error) {
     setStatus(`Error: ${error.message}`, true);
   }
+});
+
+searchInputEl?.addEventListener("input", () => {
+  uiState.searchTerm = searchInputEl.value.trim().toLowerCase();
+  applyFilters();
+});
+
+upgradeOnlyEl?.addEventListener("change", () => {
+  uiState.actionableOnly = Boolean(upgradeOnlyEl.checked);
+  applyFilters();
 });
 
 loadClaim("1008806316547592462").catch((error) => setStatus(`Error: ${error.message}`, true));
