@@ -112,15 +112,6 @@ function getToolTierColor(tier) {
   return toolTierColorsByName[String(tierName).toLowerCase()] ?? null;
 }
 
-function renderTierColoredToolLabel(label) {
-  const normalizedLabel = String(label ?? "").trim();
-  if (!normalizedLabel) return "";
-
-  const detectedTier = detectToolTierFromLabel(normalizedLabel);
-  const tierColor = Number.isFinite(detectedTier) ? getToolTierColor(detectedTier) : null;
-  return `<span class="tier-tool-name"${tierColor ? ` style="color: ${tierColor};"` : ""}>${normalizedLabel}</span>`;
-}
-
 function normalizeProfessionName(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -386,7 +377,8 @@ function renderRecommendations(data, states) {
     const family = profession.recommendedFamily ?? "Unknown";
     const tierName = Number.isFinite(profession.recommendedTier) ? getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}` : "";
     const recommendedTool = tierName ? `${tierName} ${family}` : family;
-    const recommendedToolLabel = renderTierColoredToolLabel(recommendedTool);
+    const tierColor = getToolTierColor(profession.recommendedTier);
+    const recommendedToolLabel = `<span class="tier-tool-name"${tierColor ? ` style="color: ${tierColor};"` : ""}>${recommendedTool}</span>`;
     const currentTool = formatCurrentToolForRecommendations(resolveCurrentToolForProfession(profession.name, player.gear));
     const currentToolLabel = renderTierColoredToolLabel(currentTool);
 
@@ -395,7 +387,7 @@ function renderRecommendations(data, states) {
       <td>${profession.name}</td>
       <td>${profession.deltaXp.toLocaleString()}</td>
       <td>${profession.level}</td>
-      <td>${currentToolLabel}</td>
+      <td>${currentTool}</td>
       <td>${recommendedToolLabel}</td>
       <td><span class="limit-badge">${profession.limitBadge}</span></td>
     `;
