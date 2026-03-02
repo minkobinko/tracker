@@ -61,6 +61,27 @@
           </table>
         </div>
       </section>
+
+      <section id="recommendations" class="card hidden">
+        <h2>Top Active Profession Recommendations</h2>
+        <p class="small">Top 3 professions per player ranked by XP gain since baseline snapshot.</p>
+        <div id="recommendations-state" class="small"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Profession</th>
+                <th>Δ XP</th>
+                <th>Level</th>
+                <th>Recommended Tool</th>
+                <th>Limiting Factor</th>
+              </tr>
+            </thead>
+            <tbody id="recommendations-body"></tbody>
+          </table>
+        </div>
+      </section>
     </main>
 
     <script src="data/professionToolMap.js" defer></script>
