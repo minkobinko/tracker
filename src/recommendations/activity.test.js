@@ -2,6 +2,19 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 
 const { buildActivityRecommendations } = require('./activity');
+const { getMaxTierFromLevel, getRecommendedTier } = require('./tier');
+
+test('tier helpers respect level progression and claim cap', () => {
+  assert.equal(getMaxTierFromLevel(0), 1);
+  assert.equal(getMaxTierFromLevel(9), 1);
+  assert.equal(getMaxTierFromLevel(10), 2);
+  assert.equal(getMaxTierFromLevel(89), 9);
+  assert.equal(getMaxTierFromLevel(90), 10);
+
+  assert.equal(getRecommendedTier({ professionLevel: 35, claimTier: 2 }), 2);
+  assert.equal(getRecommendedTier({ professionLevel: 35, claimTier: 8 }), 4);
+  assert.equal(getRecommendedTier({ professionLevel: 95, claimTier: null }), 10);
+});
 
 test('buildActivityRecommendations computes top profession deltas with profession-specific tool recommendations', () => {
   const baselineSnapshot = {
@@ -38,13 +51,13 @@ test('buildActivityRecommendations computes top profession deltas with professio
         },
       },
     ],
-    citizens: [{ entityId: '1', userName: 'AlphaCitizen', skills: { 2: 5, 3: 2 } }],
+    citizens: [{ entityId: '1', userName: 'AlphaCitizen', skills: { 2: 35, 3: 22 } }],
     skillsPayload,
     claimTier: 2,
     itemMetadataByPlayerId: {
       1: {
-        1001: { name: 'Pyrelite Pickaxe', tags: 'mining tool' },
-        1002: { name: 'Pyrelite Hammer', tags: 'smithing tool' },
+        1001: { name: 'Pyrelite Pickaxe', tags: 'mining tool', tier: 2 },
+        1002: { name: 'Pyrelite Hammer', tags: 'smithing tool', tier: 2 },
       },
     },
   });
@@ -52,6 +65,11 @@ test('buildActivityRecommendations computes top profession deltas with professio
   const alpha = result.find((p) => p.playerId === '1');
   assert.equal(alpha.username, 'AlphaNow');
   assert.equal(alpha.topProfessions[0].name, 'Miner');
+  assert.equal(alpha.topProfessions[0].playerLevel, 35);
+  assert.equal(alpha.topProfessions[0].maxTierByLevel, 4);
+  assert.equal(alpha.topProfessions[0].claimTierCap, 2);
+  assert.equal(alpha.topProfessions[0].recommendedTier, 2);
+  assert.equal(alpha.topProfessions[0].claimTierIsLimitingFactor, true);
   assert.equal(alpha.topProfessions[0].toolRecommendation.mappingMissing, false);
   assert.equal(alpha.topProfessions[0].toolRecommendation.recommendedNameStem, 'Pyrelite Pickaxe');
   assert.equal(alpha.topProfessions[0].toolRecommendation.candidates[0].name, 'Pyrelite Pickaxe');
@@ -133,4 +151,44 @@ test('buildActivityRecommendations flags unmapped professions for UI guardrails'
   assert.equal(result[0].topProfessions[0].toolRecommendation.mappingMissing, true);
   assert.equal(result[0].topProfessions[0].toolRecommendation.uiMessage, 'No tool mapping configured');
   assert.deepEqual(result[0].topProfessions[0].toolRecommendation.candidates, []);
+});
+
+test('buildActivityRecommendations downgrades recommended tier to highest available item tier', () => {
+  const result = buildActivityRecommendations({
+    baselineSnapshot: {
+      players: [
+        {
+          playerId: '7',
+          professionExperience: {
+            Miner: { skillId: 2, xp: 0 },
+          },
+        },
+      ],
+    },
+    livePlayerPayloads: [
+      {
+        player: {
+          entityId: '7',
+          experience: [{ skill_id: 2, quantity: 200 }],
+        },
+      },
+    ],
+    citizens: [{ entityId: '7', skills: { 2: 65 } }],
+    skillsPayload: {
+      profession: [{ id: 2, name: 'Miner', type: 'profession' }],
+    },
+    claimTier: 9,
+    itemMetadataByPlayerId: {
+      7: {
+        1001: { name: 'Emarium Pickaxe', tags: 'mining tool', tier: 3 },
+      },
+    },
+  });
+
+  const profession = result[0].topProfessions[0];
+  assert.equal(profession.maxTierByLevel, 7);
+  assert.equal(profession.claimTierCap, 9);
+  assert.equal(profession.recommendedTier, 3);
+  assert.deepEqual(profession.tierLimitingFactors, ['itemAvailability']);
+  assert.equal(profession.toolRecommendation.recommendedNameStem, 'Emarium Pickaxe');
 });

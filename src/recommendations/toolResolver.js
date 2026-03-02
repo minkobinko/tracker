@@ -3,6 +3,7 @@ const {
   professionToolMapBySkillId,
   normalizeProfessionName,
   resolveToolTierName,
+  toolTierNames,
 } = require('../../data/professionToolMap');
 
 function asArray(value) {
@@ -23,6 +24,20 @@ function normalizeItems(itemMetadata) {
     }));
   }
   return [];
+}
+
+function detectItemTier(item) {
+  const directTier = toNumber(item?.tier ?? item?.itemTier ?? item?.toolTier, NaN);
+  if (Number.isFinite(directTier)) return directTier;
+
+  const normalizedName = String(item?.name ?? '').toLowerCase();
+  for (const [tier, tierName] of Object.entries(toolTierNames)) {
+    if (normalizedName.includes(String(tierName).toLowerCase())) {
+      return toNumber(tier, NaN);
+    }
+  }
+
+  return NaN;
 }
 
 function resolveProfessionToolFamily({ professionId, professionName, tier }) {
@@ -78,21 +93,27 @@ function findCandidateItemsForFamily(itemMetadata, family) {
         acceptedPatterns.some((pattern) => itemName.includes(pattern))
       );
     })
-    .map((item) => ({
-      itemId: toNumber(item.itemId ?? item.id, null),
-      name: item.name ?? `Item ${item.itemId ?? item.id}`,
-      toolType: toNumber(item.toolType, null),
-      tags: item.tag ?? item.tags ?? null,
-    }));
+    .map((item) => {
+      const tier = detectItemTier(item);
+      return {
+        itemId: toNumber(item.itemId ?? item.id, null),
+        name: item.name ?? `Item ${item.itemId ?? item.id}`,
+        toolType: toNumber(item.toolType, null),
+        tags: item.tag ?? item.tags ?? null,
+        tier: Number.isFinite(tier) ? tier : null,
+      };
+    });
 }
 
 function resolveProfessionToolCandidates({ professionId, professionName, tier, itemMetadata }) {
   const familyResolution = resolveProfessionToolFamily({ professionId, professionName, tier });
   const candidates = findCandidateItemsForFamily(itemMetadata, familyResolution.expectedToolFamily);
+  const availableTiers = [...new Set(candidates.map((candidate) => candidate.tier).filter(Number.isFinite))].sort((a, b) => a - b);
 
   return {
     ...familyResolution,
     candidates,
+    availableTiers,
   };
 }
 

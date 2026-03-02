@@ -1,4 +1,6 @@
 const { resolveProfessionToolCandidates } = require('./toolResolver');
+const { resolveToolTierName } = require('../../data/professionToolMap');
+const { getMaxTierFromLevel, getRecommendedTier } = require('./tier');
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
@@ -187,25 +189,69 @@ function buildActivityRecommendations({
 
       const citizenLevel = toNumber(citizen?.levelBySkillId?.[skillId], NaN);
       const playerLevel = toNumber(live?.levelBySkillId?.[skillId], NaN);
-      const level = Number.isFinite(citizenLevel)
+      const professionLevel = Number.isFinite(citizenLevel)
         ? citizenLevel
         : Number.isFinite(playerLevel)
           ? playerLevel
-          : null;
+          : 0;
+
+      const normalizedClaimTier = toNumber(claimTier, NaN);
+      const claimTierCap = Number.isFinite(normalizedClaimTier) ? normalizedClaimTier : null;
+      const maxTierByLevel = getMaxTierFromLevel(professionLevel);
+      const baseRecommendedTier = getRecommendedTier({ professionLevel, claimTier: claimTierCap });
+      const professionName = resolveSkillName(skillId, baselineEntry?.label, skillMappings);
+
+      const toolRecommendation = resolveProfessionToolCandidates({
+        professionId: skillId,
+        professionName,
+        tier: baseRecommendedTier,
+        itemMetadata: itemMetadataByPlayerId[playerId],
+      });
+
+      const availableTierCap = toolRecommendation.availableTiers.length > 0
+        ? toolRecommendation.availableTiers[toolRecommendation.availableTiers.length - 1]
+        : null;
+      const recommendedTier = Number.isFinite(availableTierCap)
+        ? Math.min(baseRecommendedTier, availableTierCap)
+        : baseRecommendedTier;
+
+      const limitingFactors = [];
+      if (Number.isFinite(claimTierCap) && claimTierCap < maxTierByLevel) {
+        limitingFactors.push('claimTier');
+      }
+      if (Number.isFinite(availableTierCap) && availableTierCap < baseRecommendedTier) {
+        limitingFactors.push('itemAvailability');
+      }
+      if (limitingFactors.length === 0 && maxTierByLevel <= baseRecommendedTier) {
+        limitingFactors.push('playerLevel');
+      }
 
       topProfessions.push({
         skillId,
-        name: resolveSkillName(skillId, baselineEntry?.label, skillMappings),
+        name: professionName,
         baselineXp,
         currentXp,
         deltaXp,
-        level,
-        toolRecommendation: resolveProfessionToolCandidates({
-          professionId: skillId,
-          professionName: resolveSkillName(skillId, baselineEntry?.label, skillMappings),
-          tier: claimTier,
-          itemMetadata: itemMetadataByPlayerId[playerId],
-        }),
+        level: professionLevel,
+        playerLevel: professionLevel,
+        maxTierByLevel,
+        claimTierCap,
+        recommendedTier,
+        claimTierIsLimitingFactor: limitingFactors.includes('claimTier'),
+        tierLimitingFactors: limitingFactors,
+        toolRecommendation: {
+          ...toolRecommendation,
+          recommendedNameStem: toolRecommendation.mappingMissing
+            ? toolRecommendation.recommendedNameStem
+            : (() => {
+              const currentStem = toolRecommendation.recommendedNameStem;
+              const tierName = resolveToolTierName(recommendedTier);
+              if (!currentStem || !tierName) return currentStem;
+              const words = currentStem.split(' ');
+              if (words.length <= 1) return currentStem;
+              return `${tierName} ${words.slice(1).join(' ')}`;
+            })(),
+        },
       });
     }
 
