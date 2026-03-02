@@ -3,33 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bitjita Claim XP + Tools Tracker</title>
+    <title>New Aquila Claim Tracker</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="container">
       <section class="intro-grid">
         <header class="card">
-          <h1>Bitjita Claim XP + Tools Tracker</h1>
+          <h1>New Aquila Claim Tracker</h1>
           <p>
-            Track profession XP and equipped tools/gear for players in a claim.
+            Track profession XP and equipped tools/gear for players in the New Aquila claim.
             Data source:
             <a href="https://bitjita.com" target="_blank" rel="noreferrer">bitjita.com</a>
           </p>
         </header>
 
         <section class="controls card">
-          <form id="claim-form">
-            <label for="claim-id">Claim Entity ID</label>
-            <input
-              id="claim-id"
-              name="claimId"
-              type="text"
-              value="1008806316547592462"
-              required
-            />
-            <button type="submit">Load Claim</button>
-          </form>
+          <div class="claim-lockup">
+            <div class="small">Claim</div>
+            <strong>New Aquila</strong>
+            <div class="small">Entity ID: 1008806316547592462</div>
+            <button id="reload-claim" type="button">Reload Claim Data</button>
+          </div>
           <div id="kpi-strip" class="kpi-strip hidden"></div>
           <p class="meta">
             Uses a CORS proxy in browser and keeps requests conservative for the
