@@ -1,5 +1,7 @@
 const API_BASE = "https://bitjita.com";
 const CORS_PROXY = "https://corsproxy.io/?";
+const FIXED_CLAIM_ID = "1008806316547592462";
+const FIXED_CLAIM_NAME = "New Aquila";
 const DEFAULT_BASELINE_FILE = "snapshot-1008806316547592462-2026-03-02T07-40-09-231Z.json";
 
 const statusEl = document.getElementById("status");
@@ -16,7 +18,7 @@ const recommendationsEmptyEl = document.getElementById("recommendations-empty");
 const kpiStripEl = document.getElementById("kpi-strip");
 const searchInputEl = document.getElementById("player-search");
 const upgradeOnlyEl = document.getElementById("upgrade-only");
-const form = document.getElementById("claim-form");
+const reloadButtonEl = document.getElementById("reload-claim");
 
 const uiState = { rows: [], recommendations: [], recommendationStates: {}, searchTerm: "", actionableOnly: false };
 
@@ -230,7 +232,7 @@ function categorizedToolsFromInventoriesPayload(payload) {
 function renderClaimSummary(claim) {
   claimSummaryEl.classList.remove("hidden");
   claimSummaryEl.innerHTML = `
-    <h2>Claim: ${claim.name ?? claim.entityName ?? claim.entityId}</h2>
+    <h2>Claim: ${FIXED_CLAIM_NAME}</h2>
     <p class="small">Entity ID: ${claim.entityId ?? "-"} • Region: ${claim.regionName ?? claim.region?.name ?? "Unknown"} • Tier: ${claim.tier ?? "-"}</p>
   `;
 }
@@ -373,8 +375,9 @@ function applyFilters() {
   renderRecommendations(filteredRecommendations, uiState.recommendationStates);
 }
 
-async function loadClaim(claimId) {
-  setStatus("Loading claim, citizens, and player equipment…");
+async function loadClaim() {
+  const claimId = FIXED_CLAIM_ID;
+  setStatus(`Loading ${FIXED_CLAIM_NAME} claim, citizens, and player equipment…`);
 
   const [claimPayload, citizensPayload, skillsPayload] = await Promise.all([
     apiGet(`/api/claims/${claimId}`),
@@ -508,15 +511,12 @@ async function loadClaim(claimId) {
   renderProfessionSummary(professionStats, rows.length);
   renderKpis(rows, recommendations);
   applyFilters();
-  setStatus(`Loaded ${rows.length} players from claim ${claimId}.`);
+  setStatus(`Loaded ${rows.length} players from ${FIXED_CLAIM_NAME} (${claimId}).`);
 }
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const claimId = new FormData(form).get("claimId")?.toString().trim();
-  if (!claimId) return;
+reloadButtonEl?.addEventListener("click", async () => {
   try {
-    await loadClaim(claimId);
+    await loadClaim();
   } catch (error) {
     setStatus(`Error: ${error.message}`, true);
   }
@@ -532,4 +532,4 @@ upgradeOnlyEl?.addEventListener("change", () => {
   applyFilters();
 });
 
-loadClaim("1008806316547592462").catch((error) => setStatus(`Error: ${error.message}`, true));
+loadClaim().catch((error) => setStatus(`Error: ${error.message}`, true));

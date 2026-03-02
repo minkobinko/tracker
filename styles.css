@@ -40,7 +40,9 @@ a { color: var(--accent-strong); }
   box-shadow: 0 8px 22px rgba(90, 72, 22, 0.08);
 }
 
-.controls form { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-end; }
+.claim-lockup { display: grid; gap: 0.25rem; }
+.claim-lockup strong { font-size: 1.15rem; color: #4c3900; }
+#reload-claim { margin-top: 0.45rem; width: fit-content; }
 label { display: block; font-size: 0.9rem; color: var(--muted); margin-bottom: 0.25rem; }
 
 input, button { font: inherit; border-radius: 8px; border: 1px solid #d8c999; padding: 0.55rem 0.75rem; }
