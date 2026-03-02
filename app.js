@@ -268,7 +268,12 @@ function renderKpis(rows, recommendations) {
     ["Avg profession XP", avgXp.toLocaleString()],
   ];
 
-  kpiStripEl.innerHTML = kpis.map(([label, value]) => `<article class="kpi-tile"><div class="kpi-label">${label}</div><div class="kpi-value">${value}</div></article>`).join("");
+  kpiStripEl.innerHTML = kpis
+    .map(
+      ([label, value]) =>
+        `<article class="kpi-tile"><div class="metric-label">${label}</div><div class="metric-value">${value}</div></article>`,
+    )
+    .join("");
   kpiStripEl.classList.remove("hidden");
 }
 
@@ -280,7 +285,12 @@ function renderProfessionSummary(professionMap, playerCount) {
     const avgLevel = playerCount ? (stat.totalLevel / playerCount).toFixed(2) : "0.00";
     const tile = document.createElement("article");
     tile.className = "profession-tile";
-    tile.innerHTML = `<h3>${name}</h3><div>Total XP: <strong>${stat.totalXp.toLocaleString()}</strong></div><div>Avg Level: <strong>${avgLevel}</strong></div><div>Tracked players: <strong>${stat.players}</strong></div>`;
+    tile.innerHTML = `
+      <h3>${name}</h3>
+      <div class="profession-metric-row"><span class="metric-label">Total XP</span><strong class="metric-value">${stat.totalXp.toLocaleString()}</strong></div>
+      <div class="profession-metric-row"><span class="metric-label">Avg Level</span><strong class="metric-value">${avgLevel}</strong></div>
+      <div class="profession-metric-row"><span class="metric-label">Tracked players</span><strong class="metric-value">${stat.players}</strong></div>
+    `;
     professionGridEl.appendChild(tile);
   }
 
