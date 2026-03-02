@@ -252,37 +252,8 @@ function renderPlayers(rows) {
 }
 
 function getSkillMappings(skillsPayload) {
-  const mappings = new Map();
-
-  const mark = (skill, defaultType = "skill") => {
-    if (!skill || typeof skill !== "object") return;
-    const skillId = Number(skill.id ?? skill.skill_id ?? skill.skillId);
-    if (!Number.isFinite(skillId)) return;
-
-    const name = String(skill.name ?? skill.skill_name ?? "").trim();
-    if (!name) return;
-
-    const type = String(skill.type ?? defaultType).toLowerCase();
-    const category = String(skill.category ?? "").toLowerCase();
-    const isProfession = type === "profession" || category === "profession";
-    if (!isProfession) return;
-
-    mappings.set(skillId, name);
-  };
-
-  const markList = (items, defaultType) => {
-    for (const skill of items ?? []) {
-      mark(skill, defaultType);
-    }
-  };
-
-  markList(pluckArray(skillsPayload, "profession", "professions"), "profession");
-  markList(skillsPayload?.skills, "skill");
-  markList(skillsPayload?.data?.skills, "skill");
-  markList(skillsPayload?.data?.profession, "profession");
-  markList(skillsPayload?.data?.professions, "profession");
-
-  return mappings;
+  const professionSkills = pluckArray(skillsPayload, "profession", "professions");
+  return new Map(professionSkills.map((skill) => [Number(skill.id), skill.name]));
 }
 
 async function loadBaselineSnapshot(path = DEFAULT_BASELINE_FILE) {
@@ -326,20 +297,23 @@ function renderRecommendations(data, states) {
   recommendationsStateEl.textContent = warnings.length ? warnings.join(" • ") : "Recommendations ready.";
 
   if (!data.length) {
-    recommendationsBodyEl.innerHTML = `<tr><td colspan="6" class="small">No recommendation data available.</td></tr>`;
+    recommendationsBodyEl.innerHTML = `<tr><td colspan="7" class="small">No recommendation data available.</td></tr>`;
     return;
   }
 
   for (const player of data) {
     for (const [index, profession] of player.top3.entries()) {
       const tr = document.createElement("tr");
-      const toolText = profession.recommendedToolLabel ?? '<span class="small">N/A</span>';
+      const tierText = Number.isFinite(profession.recommendedTier)
+        ? `${getToolTierName(profession.recommendedTier) ?? `Tier ${profession.recommendedTier}`}`
+        : '<span class="small">N/A</span>';
       tr.innerHTML = `
         <td id="recommendation-${player.playerId}">${index === 0 ? player.username : ""}</td>
         <td>${profession.name}</td>
         <td>${profession.deltaXp.toLocaleString()}</td>
         <td>${profession.level}</td>
-        <td>${toolText}</td>
+        <td>${profession.recommendedFamily}</td>
+        <td>${tierText}</td>
         <td><span class="limit-badge">${profession.limitBadge}</span></td>
       `;
       recommendationsBodyEl.appendChild(tr);
@@ -481,20 +455,13 @@ async function loadClaim(claimId) {
       if (!tierName) baselineState.tierDataUnavailable = true;
       const limitBadge = Number.isFinite(toNumber(claim?.tier, NaN)) && toNumber(claim?.tier, NaN) < getMaxTierFromLevel(level) ? "Claim cap" : "Level cap";
 
-      const toolFamily = mapping.recommendedFamily;
-      const recommendedToolLabel = (() => {
-        if (mapping.mappingMissing) return '<span class="small">Unknown tool</span>';
-        if (!Number.isFinite(baseTier)) return toolFamily;
-        const prefix = tierName ?? `Tier ${baseTier}`;
-        return `${prefix} ${toolFamily}`;
-      })();
-
       profs.push({
         skillId,
         name,
         deltaXp,
         level,
-        recommendedToolLabel,
+        recommendedFamily: mapping.recommendedFamily,
+        recommendedTier: baseTier,
         limitBadge,
       });
     }
