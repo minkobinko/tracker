@@ -1,3 +1,5 @@
+const { resolveProfessionToolCandidates } = require('./toolResolver');
+
 function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
@@ -149,7 +151,15 @@ function resolveSkillName(skillId, fallbackLabel, skillMappings) {
   return skillMappings.skillById.get(skillId)?.name ?? fallbackLabel ?? `Skill ${skillId}`;
 }
 
-function buildActivityRecommendations({ baselineSnapshot, livePlayerPayloads, citizens, skillsPayload, topLimit = 3 }) {
+function buildActivityRecommendations({
+  baselineSnapshot,
+  livePlayerPayloads,
+  citizens,
+  skillsPayload,
+  itemMetadataByPlayerId = {},
+  claimTier = null,
+  topLimit = 3,
+}) {
   const skillMappings = collectSkillMappings(skillsPayload);
   const baselinePlayers = normalizeBaselinePlayers(baselineSnapshot?.players, skillMappings);
   const livePlayers = normalizeLivePlayers(livePlayerPayloads);
@@ -190,6 +200,12 @@ function buildActivityRecommendations({ baselineSnapshot, livePlayerPayloads, ci
         currentXp,
         deltaXp,
         level,
+        toolRecommendation: resolveProfessionToolCandidates({
+          professionId: skillId,
+          professionName: resolveSkillName(skillId, baselineEntry?.label, skillMappings),
+          tier: claimTier,
+          itemMetadata: itemMetadataByPlayerId[playerId],
+        }),
       });
     }
 
