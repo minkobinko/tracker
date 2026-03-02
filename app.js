@@ -335,6 +335,8 @@ function renderGearCategories(gear) {
 
 function renderPlayers(rows) {
   playersBodyEl.innerHTML = "";
+  const renderToolLabel = typeof renderTierColoredToolLabel === "function" ? renderTierColoredToolLabel : (label) => String(label ?? "");
+
   for (const row of rows) {
     const tr = document.createElement("tr");
     const professionName = String(row.highestProfession ?? "").split(" (Lv")[0].trim();
@@ -353,6 +355,7 @@ function renderPlayers(rows) {
 
 function renderRecommendations(data, states) {
   recommendationsBodyEl.innerHTML = "";
+  const renderToolLabel = typeof renderTierColoredToolLabel === "function" ? renderTierColoredToolLabel : (label) => String(label ?? "");
   recommendationsEl.classList.remove("hidden");
 
   const warnings = [];
